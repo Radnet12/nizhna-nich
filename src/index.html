@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Ніжна нічь</title>
+
+    <!-- SEO и отображение ссылки в соц. сетях -->
+    <meta name="description" lang="uk" content="Очень красивое, точное и правильное описание сайта для оптимизации">
+    <meta name="keywords" lang="uk" content="">
+
+    <!-- <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image:src" content=""> -->
+
+    <!-- Предзагрузка шрифтов -->
+    <link rel="preload" href="fonts/PTSerif-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/PlayfairDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @include("./html/ui/header.html")
+            <main>
+                @include("./html/mainPage/main.html")
+            </main>
+        @include("./html/ui/footer.html")
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

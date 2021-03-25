@@ -1,0 +1,26 @@
+.modal {
+    display: none;
+
+    &--active {
+        display: block;
+    }
+
+    &__overlay {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.85);
+    }
+
+    &__window {
+    }
+    &__close {
+    }
+}

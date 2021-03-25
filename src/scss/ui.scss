@@ -1,0 +1,12 @@
+.btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: var(--radius);
+    width: 100%;
+    height: 60px;
+    max-width: 300px;
+    background-color: var(--clr-main);
+}
