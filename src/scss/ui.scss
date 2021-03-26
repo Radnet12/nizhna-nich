@@ -1,3 +1,6 @@
+.hide {
+    display: none;
+}
 .btn-primary {
     display: flex;
     align-items: center;
@@ -9,4 +12,32 @@
     height: 60px;
     max-width: 300px;
     background-color: var(--clr-main);
+}
+.section {
+    &__title {
+        position: relative;
+        margin-bottom: 25px;
+        font-family: "PlayfairDisplay", "PTSerif", sans-serif;
+        font-size: 42px;
+        text-align: center;
+
+        svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    &__subtitle {
+        font-size: 18px;
+        line-height: 140%;
+        text-align: center;
+    }
+}
+.pd {
+    &__105t {
+        padding-top: 105px;
+    }
+    &__45t {
+        padding-top: 45px;
+    }
 }

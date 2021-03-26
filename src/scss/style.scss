@@ -72,6 +72,8 @@ body {
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 @import "./components/ui/header.scss";
 @import "./components/mainPage/main.scss";
-
+@import "./components/mainPage/about.scss";
+@import "./components/mainPage/bestsellers.scss";
+@import "./components/mainPage/philosophy.scss";
 @import "./components/ui/footer.scss";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================

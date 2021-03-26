@@ -1,8 +1,7 @@
-export const burger = (burgerSelector, navSelector, itemsSelector) => {
+export const burger = (burgerSelector, navSelector) => {
     const burger = document.querySelector(burgerSelector),
           body = document.body,
-          nav = document.querySelector(navSelector),
-          items = document.querySelectorAll(itemsSelector);
+          nav = document.querySelector(navSelector);
 
 
     burger.addEventListener("click", (e) => {

@@ -1,0 +1,22 @@
+.philosophy {
+    margin-top: 105px;
+    padding-top: 195px;
+    padding-bottom: 50px;
+    background-image: url("");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ccc;
+    &__wrapper {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 970px;
+        text-align: center;
+    }
+
+    &__quote {
+        margin-bottom: 125px;
+        font-size: 24px;
+        line-height: 105%;
+    }
+}
