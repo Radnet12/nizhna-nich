@@ -37,7 +37,7 @@
     &__wrapper {
         margin-right: auto;
         margin-left: auto;
-        max-width: 650px;
+        max-width: 645px;
         text-align: center;
         color: var(--clr-light);
     }
@@ -67,8 +67,8 @@
         animation-iteration-count: infinite;
 
         svg {
-            width: 16px;
-            height: 32px;
+            width: 10px;
+            height: 20px;
             fill: var(--clr-light);
             opacity: 0.7;
             transition: opacity 0.3s;

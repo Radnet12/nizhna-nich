@@ -11,14 +11,18 @@
     width: 100%;
     height: 60px;
     max-width: 300px;
+    font-size: 18px;
+    color: var(--clr-light);
     background-color: var(--clr-main);
 }
 .section {
     &__title {
+        @include adaptiv-value("font-size", 42, 24, 1);
+
         position: relative;
-        margin-bottom: 25px;
+        padding-right: 15px;
+        padding-left: 15px;
         font-family: "PlayfairDisplay", "PTSerif", sans-serif;
-        font-size: 42px;
         text-align: center;
 
         svg {
@@ -28,7 +32,11 @@
     }
 
     &__subtitle {
-        font-size: 18px;
+        @include adaptiv-value("font-size", 16, 16, 1);
+
+        margin-top: 25px;
+        padding-right: 15px;
+        padding-left: 15px;
         line-height: 140%;
         text-align: center;
     }
@@ -36,8 +44,26 @@
 .pd {
     &__105t {
         padding-top: 105px;
+
+        @media (max-width: 768px) {
+            padding-top: 70px;
+        }
     }
     &__45t {
         padding-top: 45px;
     }
+}
+.answer {
+    margin-top: 15px;
+    text-align: center;
+}
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
 }

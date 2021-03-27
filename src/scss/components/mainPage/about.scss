@@ -12,6 +12,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        overflow: auto;
         margin-bottom: 25px;
         font-size: 20px;
     }
@@ -19,20 +20,22 @@
     &__tabs-head-item {
         flex: 0 1 20%;
         border-bottom: 1px solid var(--clr-border);
+        padding-right: 15px;
         padding-bottom: 5px;
+        padding-left: 15px;
+        white-space: nowrap;
         text-align: center;
         transition: border-bottom var(--ms);
         cursor: pointer;
-
-        &:first-child {
-            flex: 0 1 25%;
-        }
 
         @media (min-width: 992px) {
             &:hover,
             &:focus {
                 border-bottom: 1px solid var(--clr-main);
                 transition: border-bottom var(--ms);
+            }
+            &:first-child {
+                flex: 0 1 25%;
             }
         }
 

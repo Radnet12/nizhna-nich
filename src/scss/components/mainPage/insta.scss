@@ -1,0 +1,60 @@
+.insta {
+    &__main-link {
+        display: block;
+        margin: 25px auto;
+        text-align: center;
+    }
+
+    &__subtitle {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 960px;
+    }
+
+    &__wrapper {
+        .instagram_gallery {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        a {
+            display: block;
+            margin-right: 1.7%;
+            margin-bottom: 1.7%;
+            width: calc((100% / 4) - (5.1% / 4));
+
+            @media (min-width: 1101px) {
+                &:nth-child(4n) {
+                    margin-right: 0;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            @media (max-width: 1100px) and (min-width: 769px) {
+                width: calc((100% / 3) - (3.4% / 3));
+
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+            }
+
+            @media (max-width: 768px) and (min-width: 401px) {
+                width: calc((100% / 2) - (1.7% / 2));
+
+                &:nth-child(2n) {
+                    margin-right: 0;
+                }
+            }
+
+            @media (max-width: 400px) {
+                margin-right: 0;
+                width: 100%;
+            }
+        }
+    }
+}
