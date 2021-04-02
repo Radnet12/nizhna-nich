@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "gsap": "^3.6.1",
-    "instafeed": "^1.4.0"
+    "instafeed": "^1.4.0",
+    "swiper": "^6.5.0"
   }
 }

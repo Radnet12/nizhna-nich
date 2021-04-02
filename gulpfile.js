@@ -202,6 +202,8 @@ const svgSprite = () => {
             }))
             .pipe(cheerio({
                 run: function ($) {
+                    $('[stroke]').removeAttr('stroke');
+                    $('[fill]').removeAttr('fill');
                 },
                 parserOptions: {
                     xmlMode: true

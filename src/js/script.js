@@ -1,7 +1,9 @@
 'use strict';
 import {burger} from "./components/burger";
-import { contacts } from "./components/contacs";
+import { contacts } from "./components/contacts";
+import { faq } from "./components/faq";
 import { instagramm } from "./components/instagramm";
+import { sidebar } from "./components/sidebar";
 import { tabs } from "./components/tabs";
 import { validateForms } from "./components/validateForms";
 
@@ -11,4 +13,6 @@ window.addEventListener('DOMContentLoaded', () => {
     instagramm();
     validateForms("input[type='tel']");
     contacts();
+    sidebar();
+    faq();
 });

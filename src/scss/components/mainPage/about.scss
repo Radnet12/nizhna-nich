@@ -2,6 +2,9 @@
     .container {
         max-width: 1600px;
     }
+    &__wrapper {
+        position: relative;
+    }
     &__subtitle {
         margin-right: auto;
         margin-left: auto;
@@ -9,52 +12,89 @@
     }
 
     &__tabs-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        overflow: auto;
         margin-bottom: 25px;
         font-size: 20px;
+
+        @media (min-width: 1201px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: auto;
+        }
     }
 
     &__tabs-head-item {
-        flex: 0 1 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         border-bottom: 1px solid var(--clr-border);
         padding-right: 15px;
         padding-bottom: 5px;
         padding-left: 15px;
         white-space: nowrap;
         text-align: center;
-        transition: border-bottom var(--ms);
+        transition: border-bottom $ms;
         cursor: pointer;
+
+        svg {
+            margin-bottom: 5px;
+            width: 35px;
+            height: 35px;
+            fill: var(--clr-main);
+            pointer-events: none;
+        }
+
+        @media (min-width: 1201px) {
+            flex: 0 1 20%;
+
+            &:first-child {
+                flex: 0 1 25%;
+            }
+
+            &--active {
+                border-bottom: 1px solid var(--clr-main);
+                cursor: default;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            &.swiper-slide-active {
+                border-bottom: 1px solid var(--clr-main);
+                cursor: default;
+            }
+        }
 
         @media (min-width: 992px) {
             &:hover,
             &:focus {
                 border-bottom: 1px solid var(--clr-main);
-                transition: border-bottom var(--ms);
+                transition: border-bottom $ms;
             }
-            &:first-child {
-                flex: 0 1 25%;
-            }
-        }
-
-        &--active {
-            border-bottom: 1px solid var(--clr-main);
-            cursor: default;
         }
     }
 
     &__tabs-content {
-        overflow: hidden;
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 700px;
-        text-align: center;
+        @media (min-width: 1201px) {
+            overflow: hidden;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 700px;
+            text-align: center;
+        }
+    }
+
+    &__slider-content {
+        @media (max-width: 1200px) {
+            max-width: 700px;
+            text-align: center;
+        }
     }
 
     &__tabs-content-text {
+        margin-right: 35px;
         margin-bottom: 25px;
+        margin-left: 35px;
         line-height: 130%;
     }
 

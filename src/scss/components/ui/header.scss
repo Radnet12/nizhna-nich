@@ -8,6 +8,12 @@
     width: 100%;
     height: 80px;
 
+    &.header-main {
+        .header__nav-link::after {
+            background-color: var(--clr-light);
+        }
+    }
+
     &__wrapper {
         display: flex;
         align-items: center;
@@ -39,27 +45,27 @@
             width: 100%;
             height: 100%;
             background-color: var(--clr-main);
-            transition: left calc(var(--ms) * 3) calc(var(--ms) * 2);
+            transition: left $ms * 3 $ms * 2;
             transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
             &--active {
                 left: 0;
-                transition: left calc(var(--ms) * 3);
+                transition: left $ms * 3;
                 transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
                 .header__nav-link {
                     opacity: 1;
                     transform: translateY(0);
-                    transition: transform calc(var(--ms) * 2) calc(var(--ms) * 3),
-                        opacity calc(var(--ms) * 2) calc(var(--ms) * 3);
+                    transition: transform $ms * 2 $ms * 3,
+                        opacity $ms * 2 $ms * 3;
                     transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), ease-in-out;
                 }
 
                 .header__contact-link {
                     opacity: 1;
                     transform: translateY(0);
-                    transition: transform calc(var(--ms) * 2) calc(var(--ms) * 3),
-                        opacity calc(var(--ms) * 2) calc(var(--ms) * 3);
+                    transition: transform $ms * 2 $ms * 3,
+                        opacity $ms * 2 $ms * 3;
                     transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), ease-in-out;
                 }
             }
@@ -102,19 +108,20 @@
             &::after {
                 content: "";
                 position: absolute;
-                left: -10%;
-                bottom: 28px;
+                left: 50%;
+                bottom: 24px;
                 z-index: -1;
-                width: 120%;
-                height: 0;
-                background-color: var(--clr-light);
-                transition: height var(--ms);
+                width: 0;
+                height: 2px;
+                background-color: var(--clr-main);
+                transform: translateX(-50%);
+                transition: width $ms;
             }
             &:hover,
             &:focus {
                 &::after {
-                    height: 10px;
-                    transition: height var(--ms);
+                    width: 100%;
+                    transition: width $ms;
                 }
             }
         }
@@ -129,7 +136,7 @@
             color: var(--clr-light);
             opacity: 0;
             transform: translateY(100%);
-            transition: opacity calc(var(--ms) * 2), transform calc(var(--ms) * 2);
+            transition: opacity $ms * 2, transform $ms * 2;
             transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
         }
     }
@@ -157,7 +164,7 @@
         font-size: 18px;
         opacity: 0;
         transform: translateY(100%);
-        transition: opacity calc(var(--ms) * 2), transform calc(var(--ms) * 2);
+        transition: opacity $ms * 2, transform $ms * 2;
         transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 
@@ -206,20 +213,20 @@
                 width: 100%;
                 height: 4px;
                 background-color: var(--clr-main);
-                transition: background-color calc(var(--ms) * 2);
+                transition: background-color $ms * 2;
             }
 
             &::before {
                 top: 0;
-                transition: transform calc(var(--ms) * 2), calc(var(--ms) * 2);
+                transition: transform $ms * 2, $ms * 2;
             }
             &::after {
                 bottom: 0;
-                transition: transform calc(var(--ms) * 2), bottom calc(var(--ms) * 2);
+                transition: transform $ms * 2, bottom $ms * 2;
             }
             span {
                 top: 11px;
-                transition: transform calc(var(--ms) * 2);
+                transition: transform $ms * 2;
             }
 
             &--active {
@@ -227,21 +234,21 @@
                 &::before,
                 span {
                     background-color: var(--clr-light);
-                    transition: background-color calc(var(--ms) * 2);
+                    transition: background-color $ms * 2;
                 }
                 span {
                     transform: scale(0);
-                    transition: transform calc(var(--ms) * 2);
+                    transition: transform $ms * 2;
                 }
                 &::before {
                     top: 11px;
                     transform: rotate(45deg);
-                    transition: transform calc(var(--ms) * 2), top calc(var(--ms) * 2);
+                    transition: transform $ms * 2, top $ms * 2;
                 }
                 &::after {
                     bottom: 10px;
                     transform: rotate(-45deg);
-                    transition: transform calc(var(--ms) * 2), bottom calc(var(--ms) * 2);
+                    transition: transform $ms * 2, bottom $ms * 2;
                 }
             }
         }

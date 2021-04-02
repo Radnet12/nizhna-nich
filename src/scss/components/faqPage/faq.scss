@@ -1,0 +1,68 @@
+.faq {
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__column {
+        flex: 0 1 49%;
+
+        @media (max-width: 992px) {
+            flex: 0 1 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__item-title {
+        @include adaptiv-value("font-size", 24, 18, 1);
+
+        position: relative;
+        border-bottom: 1px solid var(--clr-border);
+        padding: 0 37px 15px 15px;
+        font-family: "PlayfairDisplay", "PTSerif", sans-serif;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 15px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background-image: url("../img/ui/slider-arrow.svg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: rotate(-90deg);
+            transition: transform $ms;
+        }
+
+        &--active {
+            &::after {
+                transform: rotate(90deg);
+                transition: transform $ms;
+            }
+        }
+    }
+
+    &__item-body {
+        @include adaptiv-value("font-size", 18, 16, 1);
+
+        overflow: hidden;
+        padding-right: 15px;
+        padding-left: 15px;
+        max-height: 0;
+        line-height: 150%;
+        transition: max-height $ms, padding $ms;
+    }
+}

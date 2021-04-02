@@ -21,6 +21,7 @@ $font-family: "PTSerif", sans-serif;
 //<ПЕРЕМЕННЫЕ>============================
 
 // Ширина макета для адаптивного шрифта
+$ms: 0.3s;
 $maxWidth: 1920;
 
 // Ширина контейнера
@@ -29,7 +30,17 @@ $mw: 1750;
 //</ПЕРЕМЕННЫЕ>============================
 
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
-@import "vars";
+:root {
+    --clr-light: #fff;
+    --clr-main: #000;
+    --clr-border: #c2b7b0;
+    --clr-bg-main: #fffefd;
+    --clr-bg-secondary: #f8f8f8;
+    --clr-breadcrumb: #6a6a6a;
+    --clr-footer: #d1d1d1;
+    --radius: 4px;
+}
+
 @import "normalize";
 
 body {
@@ -37,10 +48,18 @@ body {
     font-weight: 400;
     font-size: 16px;
     color: var(--clr-main);
-    background-color: var(--clr-bg);
+    background-color: var(--clr-bg-main);
 
     &.lock {
         overflow: hidden;
+    }
+
+    &.lock-sidebar {
+        .wrapper::before {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
     }
 }
 
@@ -48,10 +67,25 @@ body {
 
 //<ОБОЛОЧКА>===========================================================================================================
 .wrapper {
+    position: relative;
     overflow: hidden;
     width: 100%;
     min-width: 320px;
     min-height: 100%;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 5;
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity $ms, visibility $ms;
+    }
 }
 
 //</ОБОЛОЧКА>===========================================================================================================
@@ -68,10 +102,18 @@ body {
 // Подключение общих элементов
 @import "keyframes";
 @import "ui";
+
+@media (max-width: 1200px) {
+    @import "../../node_modules/swiper/swiper.scss";
+    @import "../../node_modules/swiper/components/a11y/a11y.scss";
+    @import "../../node_modules/swiper/components/navigation/navigation.scss";
+}
+
 // Подключение общих элементов
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 @import "./components/ui/header.scss";
+@import "./components/ui/breadcrumbs.scss";
 
 @import "./components/mainPage/main.scss";
 @import "./components/mainPage/about.scss";
@@ -83,6 +125,11 @@ body {
 @import "./components/ui/contacts.scss";
 
 @import "./components/catalogPage/catalog.scss";
+@import "./components/categoryPage/category.scss";
+
+@import "./components/faqPage/faq.scss";
+
+@import "./components/productPage/product.scss";
 
 @import "./components/ui/footer.scss";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================

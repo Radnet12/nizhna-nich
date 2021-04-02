@@ -19,7 +19,8 @@ export const validateForms = (inputSelector) => {
             },
             submitHandler: function (form) {
                 let formData = new FormData(form);
-
+                let button = form.querySelector("button[type='submit']")
+                button.disabled = "true";
                 fetch('mail.php', {
                         method: 'POST',
                         body: formData
@@ -38,9 +39,10 @@ export const validateForms = (inputSelector) => {
                             </div>`)
                         }
                     })
-                // setTimeout(() => {
-                //     document.querySelectorAll(".answer").forEach(item => item.remove());
-                // }, 4000);
+                setTimeout(() => {
+                    document.querySelectorAll(".answer").forEach(item => item.remove());
+                    button.disabled = "";
+                }, 4000);
             }
         });
     }
@@ -59,6 +61,12 @@ export const validateForms = (inputSelector) => {
         },
         checkbox: {
             required: true
+        }
+    });
+    validateForms(".footer__mail-form", {
+        email: {
+            required: true,
+            email: true
         }
     });
 };
