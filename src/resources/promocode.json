@@ -1,0 +1,24 @@
+{
+    "promocodes": [
+        {
+            "promocode": "pdis10",
+            "discount": "50"
+        },
+        {
+            "promocode": "discount5",
+            "discount": "5"
+        },
+        {
+            "promocode": "discount7",
+            "discount": "7"
+        },
+        {
+            "promocode": "discount2",
+            "discount": "2"
+        },
+        {
+            "promocode": "discount3",
+            "discount": "3"
+        }
+    ]
+}

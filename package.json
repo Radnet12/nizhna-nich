@@ -41,6 +41,7 @@
     "webpack-stream": "^6.1.0"
   },
   "dependencies": {
+    "fslightbox": "^3.2.3",
     "gsap": "^3.6.1",
     "instafeed": "^1.4.0",
     "swiper": "^6.5.0"

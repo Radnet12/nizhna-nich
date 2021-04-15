@@ -68,6 +68,8 @@ body {
 //<ОБОЛОЧКА>===========================================================================================================
 .wrapper {
     position: relative;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     width: 100%;
     min-width: 320px;
@@ -107,6 +109,7 @@ body {
     @import "../../node_modules/swiper/swiper.scss";
     @import "../../node_modules/swiper/components/a11y/a11y.scss";
     @import "../../node_modules/swiper/components/navigation/navigation.scss";
+    @import "../../node_modules/swiper/components/pagination/pagination.scss";
 }
 
 // Подключение общих элементов
@@ -131,5 +134,15 @@ body {
 
 @import "./components/productPage/product.scss";
 
+@import "./components/cartPage/cart.scss";
+
+@import "./components/checkoutPage/checkout.scss";
+
+@import "./components/deliveryPage/delivery.scss";
+
+@import "./components/aboutPage/about.scss";
+
 @import "./components/ui/footer.scss";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+// media max 1200 1600 1400 1100 500 768 992 576 1150 370 400 650
+// media min 1201 992 1101

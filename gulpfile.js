@@ -57,7 +57,7 @@ const css = () => {
         )
         .pipe(
             autoprefixer({
-                overrideBrowserslist: ["last 5 versions"],
+                overrideBrowserslist: ["> 1%"],
                 cascade: false
             })
         )
@@ -286,7 +286,7 @@ const cssBuild = () => {
         )
         .pipe(
             autoprefixer({
-                overrideBrowserslist: ["last 5 versions"],
+                overrideBrowserslist: ["> 1%"],
                 cascade: false
             })
         )
@@ -318,7 +318,11 @@ const jsBuild = () => {
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['@babel/preset-env']
+                            presets: [
+                                ['@babel/preset-env', {
+                                    targets: [">0.25%", "not ie 11"],
+                                }]
+                            ]
                         }
                     }
                 }]

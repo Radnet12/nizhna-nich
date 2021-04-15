@@ -1,0 +1,180 @@
+<div class="checkout">
+    <div class="container">
+        <h1 class="section__title">
+            <svg aria-hidden="true">
+                <use xlink:href="img/svg/sprite.svg#leaf"></use>
+            </svg>
+            Оформлення замовлення
+        </h1>
+        <div class="checkout__wrapper pd__45t">
+            <div class="checkout__form-wrap">
+                <form class="checkout__form" action="#" method="POST">
+                    <input type="hidden" name="form_subject" value="Заявка с магазину">
+                    <div class="checkout__item">
+                        <div class="checkout__title">
+                            Ваші персональні данні:
+                        </div>
+                        <div class="checkout__inputs-row">
+                            <div class="checkout__input-wrapper">
+                                <input type="text" name="Прізвище" placeholder="Ваше прізвище" class="checkout__input"
+                                    data-validate-field="surname">
+                            </div>
+                            <div class="checkout__input-wrapper">
+                                <input type="text" name="Ім'я" placeholder="Ваше ім'я" class="checkout__input"
+                                    data-validate-field="name">
+                            </div>
+                        </div>
+                        <div class="checkout__inputs-row">
+                            <div class="checkout__input-wrapper">
+                                <input type="tel" name="Телефон" placeholder="+38 (000) 00 00 000"
+                                    class="checkout__input" data-validate-field="phone">
+                            </div>
+                            <div class="checkout__input-wrapper">
+                                <input type="email" name="Пошта" placeholder="Email" class="checkout__input"
+                                    data-validate-field="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout__item">
+                        <div class="checkout__title">
+                            Вибір способу доставки та оплати
+                        </div>
+                        <label class="checkout__radio">
+                            <input type="radio" name="Спосіб доставки" value="Нова Пошта до відділення"
+                                data-validate-field="delivery" data-delivery="1">
+                            <span>"Нова Пошта" до відділення</span>
+                        </label>
+                        <label class="checkout__radio">
+                            <input type="radio" name="Спосіб доставки" value="Адресна доставка"
+                                data-validate-field="delivery" data-delivery="2">
+                            <span>Адресна доставка</span>
+                        </label>
+                    </div>
+                    <div class="checkout__item">
+                        <div class="checkout__title">
+                            Інформація про оплату
+                        </div>
+                        <label class="checkout__radio">
+                            <input type="radio" name="Спосіб оплати" value="Оплата карткою онлайн (через Liqpay)" data-validate-field="payment">
+                            <span>Оплата карткою онлайн (через Liqpay)</span>
+                            <span class="checkout__radio--tip">«Ніжна Ніч» оплачує за вас комісію!</span>
+                        </label>
+                        <label class="checkout__radio">
+                            <input type="radio" name="Спосіб оплати" value="Оплата на реквізити" data-validate-field="payment">
+                            <span>Оплата на реквізити (реквізити надсилаємо після оформлення замовлення)</span>
+                        </label>
+                        <label class="checkout__radio">
+                            <input type="radio" name="Спосіб оплати" value="Накладений платіж"
+                                data-validate-field="payment">
+                            <span>Накладений платіж (передоплата у розмірі 200 грн)</span>
+                        </label>
+                    </div>
+                    <div class="checkout__important">
+                        <div class="checkout__important-title">
+                            Важливо!
+                        </div>
+                        <div class="checkout__important-info">
+                            Оплата нестандартних розмірів чи власного дизайну здійснюється у повному обсязі
+                            на карту.
+                        </div>
+                    </div>
+                    <div class="checkout__textarea">
+                        <textarea name="Коментар до замовлення" placeholder="Ваш коментар до замовлення"></textarea>
+                    </div>
+                    <label class="checkout__radio">
+                        <input type="checkbox" name="Передзвонити мені" value="Так">
+                        <span>Мені можна не дзвонити для підтвердження замовлення.</span>
+                    </label>
+                    <button type="submit" class="btn-primary">
+                        Оформити замовлення
+                    </button>
+                </form>
+            </div>
+            <div class="checkout__cart">
+                <div class="checkout__title">
+                    Ваше замовлення
+                </div>
+                <ul class="cart-checkout">
+                </ul>
+                <div class="cart-checkout__additions" style="display: none;">
+                    <div class="cart-checkout__additions-title">
+                        Додатково:
+                    </div>
+                    <ul class="info-product__extras">
+                    </ul>
+                </div>
+                <div class="checkout__promocode">
+                    <label>
+                        <input type="text" placeholder="У мене є промокод" name="promocode">
+                    </label>
+                </div>
+                <div class="checkout__final">
+                    <div class="checkout__final-title">
+                        Загальна сума:
+                    </div>
+                    <div class="checkout__final-price">
+                        <span>0</span> грн
+                    </div>
+                </div>
+                <!-- <div class="info-product__block">
+                    <div class="info-product__block-title">
+                        Ми пропонуємо Вам додаткові функції:
+                    </div>
+                    <ul class="info-product__extras">
+                        <li class="info-product__extra">
+                            <label>
+                                <input type="checkbox" name="Додатково">
+                                <span class="info-product__extra-name">
+                                    Замочок на підковдрі від краю до краю —
+                                </span>
+                                <span class="info-product__extra-price"> 65</span> грн
+                            </label>
+                        </li>
+                        <li class="info-product__extra">
+                            <label>
+                                <input type="checkbox" name="Додатково">
+                                <span class="info-product__extra-name">
+                                    Простирадло на резинці —
+                                </span>
+                                <span class="info-product__extra-price"> 150</span> грн
+                            </label>
+                        </li>
+                        <li class="info-product__extra">
+                            <label>
+                                <input type="checkbox" name="Додатково">
+                                <span class="info-product__extra-name">
+                                    Наволочки з страйп сатину
+                                </span>
+                                <span class="info-product__extra-price"> 350</span> грн
+                                <span class="info-product__extra-text">пара 50/70 або 70/70</span>
+                            </label>
+                        </li>
+                        <li class="info-product__extra">
+                            <label>
+                                <input type="checkbox" name="Додатково">
+                                <span class="info-product__extra-name">
+                                    Наволочки з сатину —
+                                </span>
+                                <span class="info-product__extra-price"> 350</span> грн
+                                <span class="info-product__extra-text">пара 50/70 або 70/70</span>
+                            </label>
+                        </li>
+                        <li class="info-product__extra">
+                            <label>
+                                <input type="checkbox" name="Додатково">
+                                <span class="info-product__extra-name">
+                                    Наволочки з попліну —
+                                </span>
+                                <span class="info-product__extra-price"> 300</span> грн
+                                <span class="info-product__extra-text">пара 50/70 або 70/70</span>
+                            </label>
+                        </li>
+                    </ul>
+                    <button class="btn-primary" data-add-extra>
+                        Додати до замовлення
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

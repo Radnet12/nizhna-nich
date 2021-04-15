@@ -169,6 +169,7 @@
     }
 
     &__cart {
+        position: relative;
         svg {
             width: 44px;
             height: 44px;
@@ -186,6 +187,19 @@
                 outline: none;
             }
         }
+    }
+
+    &__cart-counter {
+        position: absolute;
+        right: -4px;
+        top: -4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        padding: 3px 8px;
+        color: var(--clr-light);
+        background-color: var(--clr-main);
     }
 
     &__burger {

@@ -51,9 +51,14 @@
     }
     &__45t {
         padding-top: 45px;
+
+        @media (max-width: 768px) {
+            padding-top: 30px;
+        }
     }
 
     &__header {
+        flex-grow: 1;
         padding-top: 80px;
     }
 }
@@ -75,4 +80,35 @@
 button[type="submit"][disabled] {
     opacity: 0.7;
     cursor: default;
+}
+.thanks {
+    position: fixed;
+    left: -100%;
+    top: 50%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 60px 40px 80px;
+    font-size: 18px;
+    background-color: var(--clr-light);
+    transform: translate(-50%, -50%);
+    transition: left $ms;
+
+    svg {
+        margin-right: 12px;
+        width: 22px;
+        height: 22px;
+    }
+
+    &--active {
+        left: 50%;
+        transition: left $ms * 2;
+    }
+
+    @media (max-width: 576px) {
+        padding: 30px 15px;
+        width: 100%;
+        max-width: 310px;
+    }
 }
