@@ -1,0 +1,26 @@
+.conf {
+    padding: 20px 0;
+
+    .section__title {
+        margin-bottom: 30px;
+    }
+
+    &__subtitle {
+        @include adaptiv-font(20, 16);
+
+        line-height: 150%;
+    }
+}
+.block {
+    &__title {
+        @include adaptiv-font(20, 16);
+
+        margin: 30px 0 10px;
+    }
+    p {
+        @include adaptiv-font(20, 12);
+
+        padding: 0.7em 0;
+        line-height: 150%;
+    }
+}

@@ -1,0 +1,120 @@
+.descr {
+    .container {
+        max-width: 1200px;
+    }
+
+    &__title {
+        @include adaptiv-value("font-size", 42, 24, 1);
+
+        margin-bottom: 25px;
+        font-family: "PlayfairDisplay", "PTSerif", sans-serif;
+
+        @media (max-width: 576px) {
+            text-align: center;
+        }
+    }
+
+    &__subinfo {
+        margin-bottom: 25px;
+        line-height: 130%;
+
+        @media (max-width: 576px) {
+            text-align: center;
+        }
+    }
+
+    &__subtitle {
+        margin-bottom: 45px;
+        font-size: 18px;
+        line-height: 130%;
+
+        @media (max-width: 768px) {
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 576px) {
+            text-align: center;
+        }
+    }
+
+    &__wrapper {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 800px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+
+        &--reverse {
+            flex-direction: row-reverse;
+
+            .descr__item-image {
+                margin-right: 0;
+
+                @media (max-width: 576px) {
+                    margin-right: auto;
+                }
+            }
+            .descr__item-info {
+                margin-right: 25px;
+
+                @media (max-width: 576px) {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        @media (max-width: 576px) {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    &__item-image {
+        flex-shrink: 0;
+        margin-right: 25px;
+        width: 100%;
+        max-width: 275px;
+        max-height: 300px;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 576px) {
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__item-info {
+        line-height: 130%;
+    }
+
+    &__item-title {
+        @include adaptiv-value("font-size", 24, 20, 1);
+
+        margin-bottom: 25px;
+        max-width: 300px;
+        font-family: "PlayfairDisplay", "PTSerif", sans-serif;
+
+        @media (max-width: 576px) {
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    &__item-text {
+        margin-bottom: 15px;
+    }
+}

@@ -1,12 +1,16 @@
 .hide {
     display: none;
 }
+.show {
+    display: block;
+}
 .btn-primary {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: auto;
     margin-left: auto;
+    border: 2px solid var(--clr-main);
     border-radius: var(--radius);
     width: 100%;
     height: 60px;
@@ -14,6 +18,21 @@
     font-size: 18px;
     color: var(--clr-light);
     background-color: var(--clr-main);
+
+    &--stroked {
+        color: var(--clr-main);
+        background-color: transparent;
+        transition: color $ms, background-color $ms;
+
+        @media (min-width: 992px) {
+            &:hover,
+            &:focus {
+                color: var(--clr-light);
+                background-color: var(--clr-main);
+                transition: color $ms, background-color $ms;
+            }
+        }
+    }
 }
 .section {
     &__title {
@@ -28,6 +47,10 @@
         svg {
             width: 22px;
             height: 22px;
+        }
+
+        &--white {
+            fill: var(--clr-light);
         }
     }
 
@@ -89,6 +112,7 @@ button[type="submit"][disabled] {
     display: flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
     padding: 40px 60px 40px 80px;
     font-size: 18px;
     background-color: var(--clr-light);
@@ -110,5 +134,21 @@ button[type="submit"][disabled] {
         padding: 30px 15px;
         width: 100%;
         max-width: 310px;
+    }
+}
+.thanks-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    height: 65vh;
+    text-align: center;
+
+    &__info {
+        @include adaptiv-value("font-size", 24, 18, 1);
+
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 }

@@ -1,4 +1,7 @@
 .own-desing {
+    margin-right: 1.7%;
+    margin-left: 1.7%;
+
     &__wrapper {
         display: flex;
         align-items: center;
@@ -41,12 +44,14 @@
 
             @media (max-width: 992px) {
                 position: static;
+                border-radius: 0;
                 max-height: 300px;
             }
         }
 
         @media (max-width: 992px) {
             margin-bottom: 15px;
+            border-radius: 0;
             padding-top: 0;
         }
     }

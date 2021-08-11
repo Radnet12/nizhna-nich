@@ -1,12 +1,22 @@
-import SwiperCore, {Pagination} from 'swiper/core';
+import SwiperCore, {
+    Pagination,
+    Thumbs,
+    Navigation
+} from 'swiper/core';
 export const productSlider = () => {
+    SwiperCore.use([Pagination, Thumbs, Navigation]);
+
     const productWrapper = document.querySelector(".product__wrapper");
 
     const complectsSlider = new SwiperCore(".info-product__other", {
         slidesPerView: "auto",
         spaceBetween: 15,
         wrapperClass: "info-product__other-wrapper",
-        slideClass: "info-product__other-slide"
+        slideClass: "info-product__other-slide",
+        navigation: {
+            nextEl: '.info-product__other-arrow .swiper-button-next',
+            prevEl: '.info-product__other-arrow .swiper-button-prev',
+        },
     });
 
     if (productWrapper) {
@@ -16,7 +26,6 @@ export const productSlider = () => {
             // если срабатывает условие по медиа выражению
             if (e.matches) {
                 // инициализируем свайпер
-                SwiperCore.use([Pagination]);
                 const productImagesSlider = new SwiperCore(".product__images-container", {
                     slidesPerView: 1,
                     spaceBetween: 50,
@@ -24,6 +33,13 @@ export const productSlider = () => {
                         el: '.swiper-pagination',
                         type: 'bullets',
                     },
+                    thumbs: {
+                        swiper: {
+                            el: ".product__images-thumbs",
+                            slidesPerView: "auto",
+                            spaceBetween: 10
+                        }
+                    }
                 });
 
                 // ищём заголовки, удаляем их и пермещаем

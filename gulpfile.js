@@ -266,7 +266,7 @@ exports.default = series(clean, parallel(html, js, fonts, img, svgSprite, resour
 const tinyPng = () => {
     return src(['./src/img/**/*.jpg', './src/img/**/*.png', './src/img/**/*.jpeg'])
         .pipe(tinypng({
-            key: 'K99Bky6hJVWSyZlKxDfSvYzXxy709yf3',
+            key: 'qG9yKQNgMJ1Cbtl53GxCzxjbGt6CfH4S',
             log: true,
             parallel: true,
             parallelMax: 100,
@@ -333,7 +333,7 @@ const jsBuild = () => {
         .pipe(browsersync.stream());
 };
 
-exports.build = series(clean, parallel(html, jsBuild, fonts, img, svgSprite, resources), fontsStyle, cssBuild,tinyPng, watchFiles);
-exports.min = series(clean, parallel(html, jsBuild, fonts, img, svgSprite, resources), htmlMin, fontsStyle, cssBuild, tinyPng, watchFiles);
+exports.build = series(clean, parallel(html, jsBuild, fonts, img, svgSprite, resources), fontsStyle, cssBuild, watchFiles);
+exports.min = series(clean, parallel(html, jsBuild, fonts, img, svgSprite, resources), htmlMin, fontsStyle, cssBuild, watchFiles);
 
 //  --------------------------------- КОНЕЦ BUILD ВЕРСИЯ------------------------------------------

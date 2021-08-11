@@ -64,5 +64,11 @@
         max-height: 0;
         line-height: 150%;
         transition: max-height $ms, padding $ms;
+
+        p {
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
     }
 }

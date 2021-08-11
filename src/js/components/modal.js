@@ -19,37 +19,34 @@ const modals = () => {
         }
     }
 
-    function bindModal(triggerSelector, modalSelector, closeSelector, closeOverOverlay = true) {
+    function bindModal(triggerSelector, modalSelector, closeSelector, closeOverOverlay = true, closeOverOverlaySelector) {
         const triggers = document.querySelectorAll(triggerSelector),
             modal = document.querySelector(modalSelector),
-            close = document.querySelector(closeSelector);
+            close = document.querySelector(closeSelector),
+            overlay = document.querySelector(closeOverOverlaySelector);
 
-        triggers.forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                if (e.target) {
-                    e.preventDefault();
-                }
-                actionsWithModal(modal, 'yes');
+        if (modal && overlay) {
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    if (e.target) {
+                        e.preventDefault();
+                    }
+                    actionsWithModal(modal, 'yes');
+                });
             });
-        });
 
-        close.addEventListener('click', () => {
-            actionsWithModal(modal, 'no');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal && closeOverOverlay) {
+            close.addEventListener('click', () => {
                 actionsWithModal(modal, 'no');
-            }
-        });
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target.classList.contains("sizes__overlay") && closeOverOverlay) {
+                    actionsWithModal(modal, 'no');
+                }
+            });
+        }
     }
 
-    function showModalByTime(selector, time) {
-        setTimeout(() => {
-            const modal = document.querySelector(selector);
-            modal.classList.add('show');
-            document.body.classList.add('lock');
-        }, time);
-    }
+    bindModal(".order__prices", ".prices-modal", ".prices-modal__close", true, ".prices-modal .sizes__overlay");
 };
 export default modals;

@@ -5,7 +5,8 @@
     }
     &__item {
         position: relative;
-        padding-top: 43.71%;
+        overflow: hidden;
+        padding-top: 38%;
         width: 33.333%;
 
         img {
@@ -15,35 +16,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        a {
-            &::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                background-color: rgba(0, 0, 0, 0.6);
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity $ms * 1.5, visibility $ms * 1.5;
-            }
+            transform: scale(1);
+            transition: transform $ms * 3;
         }
 
         @media (min-width: 992px) {
             &:hover,
             &:focus {
-                .catalog__item-title::after {
-                    width: 100%;
-                    transition: width $ms * 1.5;
-                }
-
-                a::after {
-                    opacity: 1;
-                    visibility: visible;
-                    transition: opacity $ms * 1.5, visibility $ms * 1.5;
+                img {
+                    transform: scale(1.04);
+                    transition: transform $ms * 3;
                 }
             }
         }
@@ -64,25 +46,14 @@
         left: 50%;
         top: 50%;
         z-index: 1;
-        margin-right: 15px;
-        margin-left: 15px;
+        padding-right: 15px;
+        padding-left: 15px;
+        width: 82%;
         font-family: "PlayfairDisplay", "PTSerif", sans-serif;
         font-size: 2.95vw;
         text-align: center;
         color: var(--clr-light);
         transform: translate(-50%, -50%);
-
-        &::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: var(--clr-light);
-            transform: translateX(-50%);
-            transition: width $ms * 1.5;
-        }
 
         @media (max-width: 992px) {
             font-size: 5vw;

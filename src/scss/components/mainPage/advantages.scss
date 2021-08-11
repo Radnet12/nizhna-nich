@@ -17,7 +17,7 @@
         width: calc((100% / 2) - (1% / 2));
         text-align: center;
 
-        @media (min-width: 1101px) {
+        @media (min-width: 993px) {
             &:hover,
             &:focus {
                 .advantages__title {
@@ -34,13 +34,13 @@
             }
         }
 
-        @media (min-width: 1101px) {
+        @media (min-width: 993px) {
             &:nth-child(2n) {
                 margin-right: 0;
             }
         }
 
-        @media (max-width: 1100px) {
+        @media (max-width: 992px) {
             margin-right: 0;
             width: 100%;
         }
@@ -60,17 +60,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            z-index: 1;
-            background-color: rgba(0, 0, 0, 0.65);
         }
 
         @media (max-width: 992px) {
@@ -99,7 +88,7 @@
         transform: translateY(100%);
         transition: transform $ms;
 
-        @media (max-width: 1100px) {
+        @media (max-width: 992px) {
             @include adaptiv-value("font-size", 24, 20, 1);
 
             margin-bottom: 15px;
@@ -115,7 +104,7 @@
         transform: translateY(100%);
         transition: transform $ms, opacity $ms, visibility $ms;
 
-        @media (max-width: 1100px) {
+        @media (max-width: 992px) {
             @include adaptiv-value("font-size", 18, 16, 1);
 
             opacity: 1;

@@ -8,7 +8,7 @@
     &__subtitle {
         margin-right: auto;
         margin-left: auto;
-        max-width: 485px;
+        max-width: 725px;
     }
 
     &__tabs-head {
@@ -79,14 +79,14 @@
             overflow: hidden;
             margin-right: auto;
             margin-left: auto;
-            max-width: 700px;
+            max-width: 770px;
             text-align: center;
         }
     }
 
     &__slider-content {
         @media (max-width: 1200px) {
-            max-width: 700px;
+            max-width: 770px;
             text-align: center;
         }
     }

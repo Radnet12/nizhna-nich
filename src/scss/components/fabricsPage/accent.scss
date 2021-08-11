@@ -1,0 +1,96 @@
+.accentpillowcases {
+    margin-bottom: 45px;
+    text-align: center;
+
+    &__title {
+        @include adaptiv-value("font-size", 20, 16, 1);
+
+        margin-bottom: 20px;
+
+        span {
+            color: #8fd3f5;
+        }
+    }
+
+    &__subtitle {
+        @include adaptiv-value("font-size", 24, 18, 1);
+
+        position: relative;
+        display: inline-block;
+        margin-bottom: 40px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: -15px;
+            bottom: -5px;
+            width: calc(100% + 30px);
+            height: 1px;
+            background-color: #8fd3f5;
+        }
+    }
+
+    &__list {
+        @include adaptiv-value("font-size", 20, 16, 1);
+
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 900px;
+    }
+
+    &__item {
+        position: relative;
+        padding-left: 60px;
+
+        &::before {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            color: var(--clr-light);
+            background-color: #8fd3f5;
+            transform: translateY(-50%);
+
+            @media (max-width: 576px) {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+
+        span {
+            text-decoration: underline;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+        }
+
+        &:nth-child(1) {
+            &::before {
+                content: "I";
+            }
+        }
+
+        &:nth-child(2) {
+            &::before {
+                content: "II";
+            }
+        }
+        &:nth-child(3) {
+            &::before {
+                content: "III";
+            }
+        }
+
+        @media (max-width: 576px) {
+            padding-left: 55px;
+        }
+    }
+}

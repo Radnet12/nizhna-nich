@@ -1,0 +1,75 @@
+.poplin {
+    .container {
+        max-width: 1130px;
+    }
+
+    .pd__45t {
+        @media (max-width: 768px) {
+            padding-top: 45px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        margin-right: 25px;
+        width: 100%;
+        max-width: 460px;
+        max-height: 560px;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            margin-right: 0;
+            margin-bottom: 25px;
+        }
+    }
+
+    &__right {
+        max-width: 470px;
+    }
+
+    &__title {
+        @include adaptiv-value("font-size", 24, 18, 1);
+
+        margin-bottom: 25px;
+        font-family: "PlayfairDisplay", sans-serif;
+    }
+
+    &__info {
+        line-height: 130%;
+
+        p {
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    @media (min-width: 769px) {
+        &__item--reversed {
+            flex-direction: row-reverse;
+
+            .poplin__left {
+                margin-right: 0;
+                margin-left: 25px;
+
+                @media (max-width: 768px) {
+                    margin-right: 0;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}

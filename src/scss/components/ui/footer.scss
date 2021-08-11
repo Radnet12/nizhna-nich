@@ -1,17 +1,18 @@
 .footer {
-    background-color: var(--clr-footer);
+    background-color: var(--clr-bg-secondary);
 
     &__top {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         padding-top: 70px;
-        padding-bottom: 10px;
+        padding-bottom: 70px;
         font-size: 18px;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             display: block;
             padding-top: 40px;
-            text-align: center;
+            padding-bottom: 40px;
         }
     }
 
@@ -19,7 +20,7 @@
         align-self: center;
         margin-right: 10px;
         width: 100%;
-        max-width: 200px;
+        max-width: 160px;
 
         img {
             width: 100%;
@@ -27,139 +28,87 @@
             object-fit: cover;
         }
 
+        p {
+            margin-top: 30px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        @media (max-width: 992px) {
+            margin-right: auto;
+            margin-bottom: 25px;
+            margin-left: auto;
+        }
+    }
+
+    &__menu-wrapper {
+        display: flex;
+
         @media (max-width: 1400px) {
-            max-width: 150px;
+            margin-right: auto;
+            margin-left: auto;
         }
 
         @media (max-width: 768px) {
-            margin-right: auto;
-            margin-bottom: 15px;
-            margin-left: auto;
+            display: block;
         }
     }
 
     &__menu {
-        margin-right: 10px;
         max-width: 390px;
 
-        @media (min-width: 992px) {
-            &:hover,
-            &:focus {
-                .footer__title::after {
-                    background-color: var(--clr-light);
-                    transition: background-color $ms;
-                }
+        &:not(:last-child) {
+            margin-right: 60px;
+
+            @media (max-width: 1400px) {
+                margin-right: 45px;
+            }
+
+            @media (max-width: 1400px) {
+                margin-right: 30px;
+            }
+
+            @media (max-width: 768px) {
+                margin-right: auto;
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             margin-right: auto;
+            margin-bottom: 25px;
             margin-left: auto;
+        }
+
+        @media (max-width: 768px) {
+            text-align: center;
         }
     }
 
     &__title {
-        position: relative;
         margin-bottom: 15px;
         font-size: 24px;
-
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 50px;
-            height: 2px;
-            background-color: var(--clr-main);
-            transition: background-color $ms;
-
-            @media (max-width: 768px) {
-                display: none;
-            }
-        }
-    }
-
-    &__nav-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        @media (max-width: 1400px) {
-            flex-direction: column;
-        }
-
-        @media (max-width: 1100px) {
-            flex-direction: row;
-        }
-
-        @media (max-width: 992px) {
-            flex-direction: column;
-        }
     }
 
     &__nav-item {
-        flex: 0 1 49%;
-        margin-bottom: 15px;
-
-        @media (max-width: 1400px) {
-            flex: 0 1 auto;
+        &:not(:last-child) {
+            margin-bottom: 15px;
         }
 
-        @media (max-width: 1100px) {
-            flex: 0 1 49%;
-        }
+        &--last {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
 
-        @media (max-width: 992px) {
-            flex: 0 1 auto;
-        }
-    }
-
-    &__nav-link {
-        white-space: nowrap;
-    }
-
-    &__contacts {
-        margin-right: 10px;
-
-        @media (min-width: 992px) {
-            &:hover,
-            &:focus {
-                .footer__title::after {
-                    background-color: var(--clr-light);
-                    transition: background-color $ms;
+            img {
+                &:not(:last-child) {
+                    margin-right: 25px;
                 }
             }
-        }
 
-        @media (max-width: 768px) {
-            margin-right: 0;
-        }
-    }
-
-    &__contact-item {
-        margin-bottom: 15px;
-    }
-
-    &__socials {
-        margin-right: 10px;
-
-        @media (min-width: 992px) {
-            &:hover,
-            &:focus {
-                .footer__title::after {
-                    background-color: var(--clr-light);
-                    transition: background-color $ms;
-                }
+            @media (max-width: 768px) {
+                justify-content: center;
             }
         }
-
-        @media (max-width: 768px) {
-            margin-right: 0;
-        }
-    }
-
-    &__socials-item {
-        margin-bottom: 15px;
     }
 
     &__mail {
@@ -172,25 +121,25 @@
             content: "";
             position: absolute;
             left: 0;
-            top: -70px;
+            top: -30px;
             width: 1px;
-            height: calc(100% + 148px);
+            height: calc(100% + 60px);
             background-color: var(--clr-main);
 
-            @media (max-width: 768px) {
+            @media (max-width: 1400px) {
                 display: none;
             }
         }
 
         @media (max-width: 1400px) {
-            max-width: 330px;
+            flex: 0 1 100%;
+            margin-top: 30px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 600px;
         }
 
-        @media (max-width: 1100px) {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             display: block;
             padding-right: 0;
             padding-left: 0;
@@ -199,14 +148,13 @@
     }
 
     &__mail-title {
+        @include adaptiv-value("font-size", 42, 24, 1);
+
         margin-bottom: 25px;
         padding-right: 0;
         padding-left: 0;
-        text-align: left;
-
-        @media (max-width: 768px) {
-            text-align: center;
-        }
+        font-family: "PlayfairDisplay", "PTSerif", sans-serif;
+        text-align: center;
     }
     &__mail-form {
         position: relative;
@@ -263,33 +211,6 @@
         .js-validate-error-field {
             border: none !important;
             border-bottom: 1px solid rgb(184, 17, 17) !important;
-        }
-    }
-
-    &__bottom {
-        display: flex;
-        padding-top: 20px;
-        padding-bottom: 20px;
-
-        p {
-            margin-left: 15px;
-        }
-
-        @media (max-width: 768px) {
-            justify-content: center;
-        }
-
-        @media (max-width: 576px) {
-            flex-direction: column;
-            align-items: center;
-
-            a {
-                margin-bottom: 10px;
-            }
-
-            p {
-                margin-left: 0;
-            }
         }
     }
 }

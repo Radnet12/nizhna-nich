@@ -2,7 +2,8 @@ export const sidebar = () => {
     const sidebar = document.querySelector(".category__sidebar");
 
     if (sidebar) {
-        const triggerBtns = sidebar.querySelectorAll(".category__sidebar-arrow");
+        const triggerBtns = sidebar.querySelectorAll(".category__sidebar-arrow"),
+            activeSidebar = sidebar.querySelector(".category__sidebar-item--active");
 
         triggerBtns.forEach(triggerBtn => {
             triggerBtn.addEventListener("click", (e) => {
@@ -20,6 +21,13 @@ export const sidebar = () => {
                 }
             });
         });
+
+        if (activeSidebar) {
+            const body = activeSidebar.querySelector(".category__sidebar-body");
+
+            body.style.maxHeight = body.scrollHeight + "px";
+            body.style.marginTop = "15px";
+        }
 
         const mediaQuery = window.matchMedia('(max-width: 1150px)');
 
@@ -46,10 +54,9 @@ export const sidebar = () => {
                 });
 
                 window.addEventListener("scroll", () => {
-                    if (topOffset + window.pageYOffset >= content.scrollHeight - 100) {
-                        console.log("here");
+                    if (topOffset + window.pageYOffset >= content.scrollHeight - 70) {
                         catalogBtn.style.position = "absolute";
-                        catalogBtn.style.top = content.scrollHeight - 100 + "px";
+                        catalogBtn.style.top = content.scrollHeight - 70 + "px";
                     } else {
                         catalogBtn.style.position = "fixed";
                         catalogBtn.style.top = "";

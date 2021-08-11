@@ -19,7 +19,7 @@
     }
 
     &__item {
-        background-color: #f3f3f3;
+        background-color: #f8f8f8;
 
         @media (min-width: 577px) {
             &:not(:last-child) {
@@ -83,123 +83,6 @@
         @media (max-width: 768px) {
             margin-bottom: 15px;
             text-align: center;
-        }
-    }
-
-    &__additions {
-        .btn-primary {
-            margin-left: 0;
-        }
-    }
-
-    &__additions-slider {
-        position: relative;
-        z-index: 1;
-        list-style: none;
-        overflow: hidden;
-        margin-right: auto;
-        margin-bottom: 25px;
-        margin-left: auto;
-        padding: 0;
-    }
-
-    &__additions-title {
-        margin-bottom: 25px;
-        max-width: 500px;
-        font-family: "PlayfairDisplay", "PTSerif", sans-serif;
-        font-size: 24px;
-    }
-
-    &__additions-list {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        box-sizing: content-box;
-        transition-property: transform;
-
-        input {
-            position: absolute;
-            overflow: hidden;
-            width: 1px;
-            height: 1px;
-            clip: rect(0 0 0 0);
-
-            &:checked {
-                + .cart__additions-name::after {
-                    display: block;
-                }
-            }
-        }
-    }
-
-    &__additions-item {
-        position: relative;
-        flex-shrink: 0;
-        width: 100%;
-        height: 100%;
-        max-width: 324px;
-        transition-property: transform;
-
-        @media (max-width: 576px) {
-            max-width: 290px;
-        }
-    }
-
-    &__additions-image {
-        margin-bottom: 15px;
-        width: 100%;
-        max-width: 324px;
-        max-height: 411px;
-        cursor: pointer;
-
-        img {
-            width: 100%;
-            height: 411px;
-            object-fit: cover;
-
-            @media (max-width: 576px) {
-                height: 385px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            max-width: 290px;
-            max-height: 385px;
-        }
-    }
-
-    &__additions-price {
-        margin-bottom: 10px;
-        font-family: "PlayfairDisplay", "PTSerif", sans-serif;
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    &__additions-name {
-        position: relative;
-        padding-left: 25px;
-        cursor: pointer;
-
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 16px;
-            height: 16px;
-            background-color: var(--clr-border);
-            transform: translateY(-50%);
-        }
-
-        &::after {
-            content: "✓";
-            position: absolute;
-            left: 2px;
-            top: 50%;
-            display: none;
-            transform: translateY(-50%);
         }
     }
 }
@@ -272,7 +155,8 @@
 
     &__calc {
         display: inline-block;
-        border: 1px solid var(--clr-border);
+        border: 1px solid var(--clr-border-2);
+        background-color: var(--clr-light);
 
         @media (max-width: 576px) {
             align-self: center;
@@ -281,16 +165,30 @@
     }
 
     &__calc-btn {
-        padding: 16px 18px;
+        padding: 17px 18px;
+        transition: background-color $ms;
+
+        @media (min-width: 992px) {
+            &:hover,
+            &:focus {
+                background-color: var(--clr-border-2);
+                transition: background-color $ms;
+            }
+
+            &:active {
+                background-color: var(--clr-border);
+                transition: background-color $ms;
+            }
+        }
     }
 
     &__calc-input {
-        padding-top: 14px;
+        padding-top: 15px;
         padding-bottom: 16px;
         width: 45px;
         font-size: 18px;
         text-align: center;
-        background-color: #f3f3f3;
+        background-color: var(--clr-light);
 
         @media (max-width: 370px) {
             width: 35px;

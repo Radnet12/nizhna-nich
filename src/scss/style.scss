@@ -32,12 +32,14 @@ $mw: 1750;
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 :root {
     --clr-light: #fff;
-    --clr-main: #000;
+    --clr-main: #161616;
     --clr-border: #c2b7b0;
+    --clr-border-2: #ebebeb;
     --clr-bg-main: #fffefd;
     --clr-bg-secondary: #f8f8f8;
-    --clr-breadcrumb: #6a6a6a;
-    --clr-footer: #d1d1d1;
+    --clr-breadcrumb: #868686;
+    --clr-green: #1bc50c;
+    --clr-red: #f15b5b;
     --radius: 4px;
 }
 
@@ -89,7 +91,11 @@ body {
         transition: opacity $ms, visibility $ms;
     }
 }
-
+main {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
 //</ОБОЛОЧКА>===========================================================================================================
 
 //<ОСНОВНАЯ СЕТКА>===========================================================================================================
@@ -129,10 +135,12 @@ body {
 
 @import "./components/catalogPage/catalog.scss";
 @import "./components/categoryPage/category.scss";
+@import "./components/categoryPage/descr.scss";
 
 @import "./components/faqPage/faq.scss";
 
 @import "./components/productPage/product.scss";
+@import "./components/productPage/sizes.scss";
 
 @import "./components/cartPage/cart.scss";
 
@@ -142,7 +150,17 @@ body {
 
 @import "./components/aboutPage/about.scss";
 
+@import "./components/fabricsPage/fabrics.scss";
+@import "./components/fabricsPage/accent.scss";
+
+@import "./components/creatorPage/acquint.scss";
+@import "./components/creatorPage/mix.scss";
+@import "./components/creatorPage/poplin.scss";
+@import "./components/creatorPage/order.scss";
+
 @import "./components/ui/footer.scss";
+
+@import "./components/ui/confidential.scss";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 // media max 1200 1600 1400 1100 500 768 992 576 1150 370 400 650
 // media min 1201 992 1101

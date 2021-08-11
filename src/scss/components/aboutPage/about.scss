@@ -7,16 +7,19 @@
         display: flex;
     }
 
-    &__image {
-    }
-
-    &__quote {
-    }
-
-    &__quote-text {
-    }
-
     &__quote-name {
+        position: relative;
+        margin-top: 50px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -10px;
+            width: 116px;
+            height: 1px;
+            background-color: var(--clr-main);
+        }
     }
 
     &__item {
@@ -52,7 +55,19 @@
                     background-size: cover;
                     background-repeat: no-repeat;
                 }
+
+                @media (max-width: 992px) {
+                    margin-top: 20px;
+                }
             }
+        }
+
+        &--reverse {
+            flex-direction: row-reverse;
+        }
+
+        @media (max-width: 992px) {
+            flex-direction: column;
         }
     }
 
@@ -64,6 +79,7 @@
 
         @media (max-width: 992px) {
             flex: 0 1 100%;
+            margin-bottom: 30px;
         }
     }
 
@@ -111,8 +127,13 @@
         }
 
         @media (max-width: 992px) {
-            display: none;
+            flex: 0 1 100%;
+            margin-bottom: 30px;
         }
+    }
+
+    &__item-text {
+        margin-bottom: 15px;
     }
 
     &__philo {
@@ -125,7 +146,8 @@
         width: 100%;
         font-family: "PlayfairDisplay", "PTSerif", sans-serif;
         text-align: center;
-        background-image: url("https://images.unsplash.com/photo-1509122696753-d01769640838?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1977&q=80");
+        color: var(--clr-light);
+        background-image: url("../img/aboutPage/image1.jpg");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -137,7 +159,7 @@
 
         @media (max-width: 992px) {
             margin-top: 50px;
-            margin-bottom: 50px;
+            margin-bottom: 80px;
             padding-top: 30px;
             padding-bottom: 30px;
         }
