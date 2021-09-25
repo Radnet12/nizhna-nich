@@ -276,60 +276,66 @@ const tinyPng = () => {
 };
 
 const cssBuild = () => {
-    return src('./src/scss/style.scss')
+    return src("./src/scss/style.scss")
         .pipe(
             sass({
-                outputStyle: 'expanded'
-            }).on('error', notify.onError()))
-        .pipe(
-            groupmedia()
+                outputStyle: "expanded",
+            }).on("error", notify.onError())
         )
+        .pipe(groupmedia())
         .pipe(
             autoprefixer({
-                overrideBrowserslist: ["> 1%"],
-                cascade: false
+                overrideBrowserslist: [">1%", "not ie 11"],
+                cascade: false,
             })
         )
-        .pipe(dest('./dist/css/'))
+        .pipe(dest("./dist/css/"))
         .pipe(
             rename({
-                suffix: '.min'
+                suffix: ".min",
             })
         )
         .pipe(
             cleanCSS({
-                level: 2
+                level: 2,
             })
         )
-        .pipe(dest('./dist/css/'))
+        .pipe(dest("./dist/css/"))
         .pipe(browsersync.stream());
 };
 const jsBuild = () => {
-    return src('./src/js/script.js')
-        .pipe(webpackStream({
-            mode: 'production',
-            output: {
-                filename: 'script.js',
-            },
-            module: {
-                rules: [{
-                    test: /\.m?js$/,
-                    exclude: /(node_modules|bower_components)/,
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: [
-                                ['@babel/preset-env', {
-                                    targets: [">0.25%", "not ie 11"],
-                                }]
-                            ]
-                        }
-                    }
-                }]
-            }
-        }))
+    return src("./src/js/script.js")
+        .pipe(
+            webpackStream({
+                mode: "production",
+                output: {
+                    filename: "script.js",
+                },
+                module: {
+                    rules: [
+                        {
+                            test: /\.m?js$/,
+                            exclude: /(node_modules|bower_components)/,
+                            use: {
+                                loader: "babel-loader",
+                                options: {
+                                    presets: [
+                                        [
+                                            "@babel/preset-env",
+                                            {
+                                                targets: [">1%", "not ie 11"],
+                                            },
+                                        ],
+                                    ],
+                                },
+                            },
+                        },
+                    ],
+                },
+            })
+        )
         .pipe(uglify().on("error", notify.onError()))
-        .pipe(dest('./dist/js'))
+        .pipe(dest("./dist/js"))
         .pipe(browsersync.stream());
 };
 

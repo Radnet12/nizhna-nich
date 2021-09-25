@@ -1,0 +1,100 @@
+.reviews {
+    &__item {
+        border: 1px solid #ededed;
+        border-radius: calc(var(--radius) * 4);
+        padding: 25px;
+        box-shadow: 0 3px 10px rgba(235, 235, 235, 0.25);
+        background-color: var(--clr-light);
+
+        @media (max-width: 1200px) {
+            padding: 15px;
+        }
+    }
+
+    &__item-top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    &__item-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-right: 10px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        color: var(--clr-light);
+        background-color: var(--clr-main);
+
+        img {
+            border-radius: 50%;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__item-name {
+        @include adaptiv-value("font-size", 20, 18, 1);
+    }
+
+    &__item-middle {
+        @include adaptiv-value("font-size", 20, 18, 1);
+
+        margin-bottom: 15px;
+    }
+
+    &__item-stars {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 15px;
+        width: 100%;
+        max-width: 113px;
+
+        &--rated {
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+    }
+
+    &__item-body {
+        line-height: 140%;
+    }
+
+    &__navigation {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 130px;
+        transform: translateX(-50%);
+    }
+
+    .swiper-container {
+        padding-bottom: 70px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        &::after {
+            display: none;
+        }
+
+        position: static;
+        width: 55px;
+        height: 55px;
+        background-image: url("../img/ui/review-arrow.svg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}

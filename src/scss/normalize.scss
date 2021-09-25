@@ -8,7 +8,6 @@ body {
     height: 100%;
 }
 body {
-    -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
@@ -27,11 +26,6 @@ body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-hr {
-    box-sizing: content-box; /* 1 */
-    height: 0; /* 1 */
-    overflow: visible; /* 2 */
-}
 aside,
 nav,
 footer,
@@ -49,10 +43,6 @@ h6 {
     font-weight: inherit;
     font-size: inherit;
 }
-pre {
-    font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
-}
 a {
     background-color: transparent;
     text-decoration: none;
@@ -64,38 +54,9 @@ a:visited {
 a:hover {
     text-decoration: none;
 }
-abbr[title] {
-    border-bottom: none; /* 1 */
-    text-decoration: underline; /* 2 */
-    text-decoration: underline dotted; /* 2 */
-}
 b,
 strong {
     font-weight: bolder;
-}
-code,
-kbd,
-samp {
-    font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
-}
-small {
-    font-size: 80%;
-}
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-sup {
-    top: -0.5em;
 }
 img {
     border-style: none;
@@ -103,7 +64,6 @@ img {
 }
 button,
 input,
-optgroup,
 select,
 textarea {
     margin: 0; /* 2 */
@@ -142,26 +102,9 @@ button:-moz-focusring,
 [type="submit"]:-moz-focusring {
     outline: 1px dotted ButtonText;
 }
-input::-ms-clear {
-    display: none;
-}
 button::-moz-focus-inner {
     padding: 0;
     border: 0;
-}
-fieldset {
-    padding: 0.35em 0.75em 0.625em;
-}
-legend {
-    box-sizing: border-box; /* 1 */
-    color: inherit; /* 2 */
-    display: table; /* 1 */
-    max-width: 100%; /* 1 */
-    padding: 0; /* 3 */
-    white-space: normal; /* 1 */
-}
-progress {
-    vertical-align: baseline;
 }
 textarea {
     overflow: auto;
@@ -185,15 +128,6 @@ textarea {
 ::-webkit-file-upload-button {
     -webkit-appearance: button; /* 1 */
     font: inherit; /* 2 */
-}
-details {
-    display: block;
-}
-summary {
-    display: list-item;
-}
-template {
-    display: none;
 }
 ul li {
     list-style: none;

@@ -1,12 +1,11 @@
-import InputMask from '../vendors/inputmask';
-import JustValidate from '../vendors/just-validate';
-import CryptoJS from 'crypto-js';
+import InputMask from "../vendors/inputmask";
+import JustValidate from "../vendors/just-validate";
+import CryptoJS from "crypto-js";
 
 export const validateForms = (inputSelector) => {
     const input = document.querySelectorAll(inputSelector);
     const cardPay = document.querySelector("[data-card]");
     const thanksModal = document.querySelector(".thanks");
-
 
     if (input.length > 0) {
         let im = new InputMask("+38 (999) 999-99-99");
@@ -24,17 +23,17 @@ export const validateForms = (inputSelector) => {
             let array = [];
 
             if (type === "names") {
-                cart.forEach(obj => {
+                cart.forEach((obj) => {
                     const name = obj.title.trim();
                     array.push(name);
                 });
             } else if (type === "price") {
-                cart.forEach(obj => {
+                cart.forEach((obj) => {
                     const price = obj.price.trim();
                     array.push(price);
                 });
             } else if (type === "count") {
-                cart.forEach(obj => {
+                cart.forEach((obj) => {
                     if (obj.quantity) {
                         array.push(obj.quantity);
                     } else {
@@ -46,7 +45,15 @@ export const validateForms = (inputSelector) => {
             return array;
         };
 
-        const hashMd5 = CryptoJS.HmacMD5(`nizhna_nich_com;https://nizhna-nich.com/;${orderReference};${timeForNow};${document.querySelector(".checkout__final-price span").textContent};UAH;${getArray("names").join(";")};${getArray("count").join(";")};${getArray("price").join(";")}`, secretKey);
+        const hashMd5 = CryptoJS.HmacMD5(
+            `nizhna_nich_com;https://nizhna-nich.com/;${orderReference};${timeForNow};${
+                document.querySelector(".checkout__final-price span")
+                    .textContent
+            };UAH;${getArray("names").join(";")};${getArray("count").join(
+                ";"
+            )};${getArray("price").join(";")}`,
+            secretKey
+        );
 
         return {
             merchantAccount: "nizhna_nich_com",
@@ -55,29 +62,35 @@ export const validateForms = (inputSelector) => {
             merchantSignature: hashMd5.toString(),
             orderReference: orderReference,
             orderDate: timeForNow,
-            amount: document.querySelector(".checkout__final-price span").textContent,
+            amount: document.querySelector(".checkout__final-price span")
+                .textContent,
             currency: "UAH",
             productName: getArray("names"),
             productPrice: getArray("price"),
             productCount: getArray("count"),
-            clientFirstName: document.querySelector(".checkout__input--name").value,
-            clientLastName: document.querySelector(".checkout__input--surname").value,
+            clientFirstName: document.querySelector(".checkout__input--name")
+                .value,
+            clientLastName: document.querySelector(".checkout__input--surname")
+                .value,
             clientEmail: document.querySelector(".checkout__input--mail").value,
-            clientPhone: document.querySelector(".checkout__input--phone").value,
-            language: "UA"
-        }
+            clientPhone: document.querySelector(".checkout__input--phone")
+                .value,
+            language: "UA",
+        };
     };
 
     let wayforpay = new Wayforpay();
     let pay = function (data) {
-        wayforpay.run(data,
+        wayforpay.run(
+            data,
             function () {
                 form.reset();
                 localStorage.removeItem("cart");
-                window.location.href = '/thankyou';
+                window.location.href = "/thankyou";
             },
             function () {
-                thanksModal.querySelector("p").textContent = "Щось пішло не так. Спробуйте ще раз!";
+                thanksModal.querySelector("p").textContent =
+                    "Щось пішло не так. Спробуйте ще раз!";
                 thanksModal.classList.add("thanks--active");
                 document.body.classList.add("lock-sidebar");
 
@@ -87,7 +100,8 @@ export const validateForms = (inputSelector) => {
                 }, 2500);
             },
             function () {
-                thanksModal.querySelector("p").textContent = "Йде обробка. Зачекайте, будь ласка!";
+                thanksModal.querySelector("p").textContent =
+                    "Йде обробка. Зачекайте, будь ласка!";
                 thanksModal.classList.add("thanks--active");
                 document.body.classList.add("lock-sidebar");
 
@@ -97,7 +111,7 @@ export const validateForms = (inputSelector) => {
                 }, 2500);
             }
         );
-    }
+    };
 
     let validateForms = (selector, rules) => {
         if (document.querySelector(selector)) {
@@ -108,7 +122,7 @@ export const validateForms = (inputSelector) => {
                     phone: "Будь ласка, введіть номер телефону",
                     email: {
                         required: "Будь ласка, введіть пошту",
-                        email: "Будь ласка, введіть пошту корректно"
+                        email: "Будь ласка, введіть пошту корректно",
                     },
                     checkbox: "Поле є обов'язковим",
                     surname: "Будь ласка, введіть прізвище",
@@ -122,143 +136,205 @@ export const validateForms = (inputSelector) => {
                     size: "Будь ласка, оберіть розмір",
                     oneOne: "Введіть №",
                     twoOne: "Введіть №",
-                    threeOne: "Оберіть розмір"
+                    threeOne: "Оберіть розмір",
+                    fourthOne: "Введіть №",
                 },
                 submitHandler: function (form) {
                     let formData = new FormData(form);
-                    let button = form.querySelector("button[type='submit']")
+                    let button = form.querySelector("button[type='submit']");
                     button.disabled = "true";
                     if (selector === ".checkout__form") {
                         let tk;
 
                         grecaptcha.ready(function () {
-                            grecaptcha.execute('6LcCB5UbAAAAAKW3tRg1zoVxjULSLs8myo-nPIfd', {
-                                action: 'homepage'
-                            }).then(function (token) {
-                                tk = token;
-                                document.getElementById("token").value = token;
+                            grecaptcha
+                                .execute(
+                                    "6LcCB5UbAAAAAKW3tRg1zoVxjULSLs8myo-nPIfd",
+                                    {
+                                        action: "homepage",
+                                    }
+                                )
+                                .then(function (token) {
+                                    tk = token;
+                                    document.getElementById("token").value =
+                                        token;
 
+                                    const data = new URLSearchParams();
 
-                                const data = new URLSearchParams();
+                                    for (const pair of new FormData(
+                                        document.querySelector(selector)
+                                    )) {
+                                        data.append(pair[0], pair[1]);
+                                    }
 
-                                for (const pair of new FormData(document.querySelector(selector))) {
-                                    data.append(pair[0], pair[1]);
-                                }
+                                    fetch(
+                                        "https://nizhna-nich.com/captcha.php",
+                                        {
+                                            method: "POST",
+                                            body: data,
+                                        }
+                                    )
+                                        .then((response) => response.json())
+                                        .then((result) => {
+                                            if (result["om_score"] >= 0.5) {
+                                                const finalPrice =
+                                                    document.querySelector(
+                                                        ".checkout__final-price span"
+                                                    ).textContent;
+                                                formData.append(
+                                                    "Разом",
+                                                    finalPrice
+                                                );
+                                                formData.append(
+                                                    "Товары",
+                                                    localStorage.getItem("cart")
+                                                );
 
-                                fetch("captcha.php", {
-                                        method: "POST",
-                                        body: data
-                                    })
-                                    .then(response => response.json())
-                                    .then(result => {
-                                        if (result["om_score"] >= 0.5) {
-                                            const finalPrice = document.querySelector(".checkout__final-price span").textContent;
-                                            formData.append("Разом", finalPrice);
-                                            formData.append("Товары", localStorage.getItem("cart"));
-
-
-                                            fetch('mail.php', {
-                                                    method: 'POST',
-                                                    body: formData
-                                                })
-                                                .then(response => {
-
+                                                fetch(
+                                                    "https://nizhna-nich.com/mail.php",
+                                                    {
+                                                        method: "POST",
+                                                        body: formData,
+                                                    }
+                                                ).then((response) => {
                                                     if (!cardPay.checked) {
                                                         if (response.ok) {
                                                             form.reset();
-                                                            localStorage.removeItem("cart");
-                                                            window.location.href = '/thankyou';
+                                                            localStorage.removeItem(
+                                                                "cart"
+                                                            );
+                                                            window.location.href =
+                                                                "/thankyou";
                                                         } else {
-                                                            thanksModal.querySelector("p").textContent = "Щось пішло не так. Спробуйте ще раз!";
-                                                            thanksModal.classList.add("thanks--active");
-                                                            document.body.classList.add("lock-sidebar");
+                                                            thanksModal.querySelector(
+                                                                "p"
+                                                            ).textContent =
+                                                                "Щось пішло не так. Спробуйте ще раз!";
+                                                            thanksModal.classList.add(
+                                                                "thanks--active"
+                                                            );
+                                                            document.body.classList.add(
+                                                                "lock-sidebar"
+                                                            );
 
                                                             setTimeout(() => {
-                                                                thanksModal.classList.remove("thanks--active");
-                                                                document.body.classList.remove("lock-sidebar");
+                                                                thanksModal.classList.remove(
+                                                                    "thanks--active"
+                                                                );
+                                                                document.body.classList.remove(
+                                                                    "lock-sidebar"
+                                                                );
                                                             }, 2500);
                                                         }
                                                     }
-                                                })
+                                                });
 
+                                                if (
+                                                    cardPay &&
+                                                    cardPay.checked
+                                                ) {
+                                                    const paymentData =
+                                                        createDataForPay();
+                                                    pay(paymentData);
+                                                }
+                                            } else {
+                                                thanksModal.querySelector(
+                                                    "p"
+                                                ).textContent =
+                                                    "Щось пішло не так. Спробуйте ще раз!";
+                                                thanksModal.classList.add(
+                                                    "thanks--active"
+                                                );
+                                                document.body.classList.add(
+                                                    "lock-sidebar"
+                                                );
 
-                                            if (cardPay && cardPay.checked) {
-                                                const paymentData = createDataForPay();
-                                                pay(paymentData);
+                                                setTimeout(() => {
+                                                    thanksModal.classList.remove(
+                                                        "thanks--active"
+                                                    );
+                                                    document.body.classList.remove(
+                                                        "lock-sidebar"
+                                                    );
+                                                }, 2500);
                                             }
-                                        } else {
-                                            thanksModal.querySelector("p").textContent = "Щось пішло не так. Спробуйте ще раз!";
-                                            thanksModal.classList.add("thanks--active");
-                                            document.body.classList.add("lock-sidebar");
-
                                             setTimeout(() => {
-                                                thanksModal.classList.remove("thanks--active");
-                                                document.body.classList.remove("lock-sidebar");
-                                            }, 2500);
-                                        }
-                                        setTimeout(() => {
-                                            document.querySelectorAll(".answer").forEach(item => item.remove());
-                                            button.disabled = "";
-                                        }, 4000);
-                                    })
-                            });
+                                                document
+                                                    .querySelectorAll(".answer")
+                                                    .forEach((item) =>
+                                                        item.remove()
+                                                    );
+                                                button.disabled = "";
+                                            }, 4000);
+                                        });
+                                });
                         });
                     } else {
-                        fetch('mail.php', {
-                                method: 'POST',
-                                body: formData
-                            })
-                            .then(response => {
+                        fetch("https://nizhna-nich.com/mail.php", {
+                            method: "POST",
+                            body: formData,
+                        }).then((response) => {
+                            if (response.ok) {
+                                form.reset();
 
-                                if (!cardPay.checked) {
-                                    if (response.ok) {
-                                        form.reset();
-                                        localStorage.removeItem("cart");
-                                        thanksModal.querySelector("p").textContent = "Дякуємо за підписку на новини!";
-                                        thanksModal.classList.add("thanks--active");
-                                        document.body.classList.add("lock-sidebar");
-
-                                        setTimeout(() => {
-                                            thanksModal.classList.remove("thanks--active");
-                                            document.body.classList.remove("lock-sidebar");
-                                        }, 2500);
-                                    } else {
-                                        thanksModal.querySelector("p").textContent = "Щось пішло не так. Спробуйте ще раз!";
-                                        thanksModal.classList.add("thanks--active");
-                                        document.body.classList.add("lock-sidebar");
-
-                                        setTimeout(() => {
-                                            thanksModal.classList.remove("thanks--active");
-                                            document.body.classList.remove("lock-sidebar");
-                                        }, 2500);
-                                    }
+                                if (selector === ".footer__mail-form") {
+                                    thanksModal.querySelector("p").textContent =
+                                        "Дякуємо за підписку на новини!";
+                                } else if (selector === ".order__form") {
+                                    thanksModal.querySelector("p").textContent =
+                                        "Дякуємо за замовлення у нашому магазині!";
                                 }
-                            })
+
+                                thanksModal.classList.add("thanks--active");
+                                document.body.classList.add("lock-sidebar");
+
+                                setTimeout(() => {
+                                    thanksModal.classList.remove(
+                                        "thanks--active"
+                                    );
+                                    document.body.classList.remove(
+                                        "lock-sidebar"
+                                    );
+                                }, 2500);
+                            } else {
+                                thanksModal.querySelector("p").textContent =
+                                    "Щось пішло не так. Спробуйте ще раз!";
+                                thanksModal.classList.add("thanks--active");
+                                document.body.classList.add("lock-sidebar");
+
+                                setTimeout(() => {
+                                    thanksModal.classList.remove(
+                                        "thanks--active"
+                                    );
+                                    document.body.classList.remove(
+                                        "lock-sidebar"
+                                    );
+                                }, 2500);
+                            }
+                        });
                     }
-                }
+                },
             });
         }
-    }
+    };
 
     validateForms(".footer__mail-form", {
-        email: {
+        phone: {
             required: true,
-            email: true
-        }
+        },
     });
     validateForms(".checkout__form", {
         name: {
-            required: true
+            required: true,
         },
         surname: {
-            required: true
+            required: true,
         },
         phone: {
-            required: true
+            required: true,
         },
         email: {
-            required: true,
-            email: true
+            email: true,
         },
         delivery: {
             required: true,
@@ -277,38 +353,41 @@ export const validateForms = (inputSelector) => {
         },
         payment: {
             required: true,
-        }
+        },
     });
     validateForms(".order__form", {
         name: {
-            required: true
+            required: true,
         },
         surname: {
-            required: true
+            required: true,
         },
         phone: {
-            required: true
+            required: true,
         },
         type: {
-            required: true
+            required: true,
         },
         size: {
-            required: true
+            required: true,
         },
         oneOne: {
-            required: true
+            required: true,
         },
         oneTwo: {
-            required: true
+            required: true,
         },
         twoOne: {
-            required: true
+            required: true,
         },
         twoTwo: {
-            required: true
+            required: true,
         },
         threeOne: {
-            required: true
+            required: true,
+        },
+        fourthOne: {
+            required: true,
         },
     });
 };

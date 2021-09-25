@@ -62,22 +62,12 @@
     }
 
     &__form-wrapper {
-        display: flex;
         margin-bottom: 45px;
-
-        @media (max-width: 576px) {
-            display: block;
-        }
     }
 
     &__form-item {
         &:not(:last-child) {
-            margin-right: 45px;
-
-            @media (max-width: 576px) {
-                margin-right: 0;
-                margin-bottom: 45px;
-            }
+            margin-bottom: 45px;
         }
     }
 
@@ -89,7 +79,7 @@
             &:not(:last-child) {
                 margin-right: 35px;
 
-                @media (max-width: 1200px) {
+                @media (max-width: 768px) {
                     margin-right: 0;
                     margin-bottom: 15px;
                 }
@@ -99,28 +89,41 @@
         .js-validate-error-label {
             top: 100%;
 
-            @media (max-width: 1200px) {
+            @media (max-width: 768px) {
                 top: calc(100% + 8px);
             }
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 768px) {
             display: block;
         }
     }
 
     &__form-bottom {
-        margin-bottom: 45px;
+        margin-bottom: 25px;
     }
 
     &__form-bottom-row {
+        display: flex;
+        margin-bottom: 25px;
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+    }
+
+    &__form-bottom-column {
+        margin-bottom: 25px;
+    }
+
+    &__form-bottom-inner {
         display: flex;
 
         &:not(:last-child) {
             margin-bottom: 25px;
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 370px) {
             display: block;
         }
     }
@@ -129,7 +132,7 @@
         &:not(:last-child) {
             margin-right: 25px;
 
-            @media (max-width: 992px) {
+            @media (max-width: 370px) {
                 margin-right: 0;
                 margin-bottom: 25px;
             }
@@ -166,8 +169,18 @@
         }
     }
 
+    &__price {
+        margin-bottom: 25px;
+        font-size: 18px;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
     .js-validate-error-label {
         position: absolute;
         left: 0;
+        white-space: nowrap;
     }
 }

@@ -77,12 +77,12 @@ export const cart = () => {
             }
         };
         const intializePromocode = () => {
-            fetch("promocode.json")
-                .then(response => response.json())
-                .then(({
-                    promocodes
-                }) => {
-                    const input = document.querySelector(".checkout__promocode input");
+            fetch("https://nizhna-nich.com/promocode.json")
+                .then((response) => response.json())
+                .then(({ promocodes }) => {
+                    const input = document.querySelector(
+                        ".checkout__promocode input"
+                    );
 
                     const searchPromocode = (value) => {
                         for (let i = 0; i < promocodes.length; i++) {
@@ -274,7 +274,7 @@ export const cart = () => {
                             <div class="cart__empty-subtitle">
                                 Ви маєте можливість повернутися за покупками
                             </div>
-                            <a href="catalog.html" class="btn-primary">
+                            <a href="catalog" class="btn-primary">
                                 Повернутися за покупками
                             </a>
                         </li>
@@ -467,7 +467,7 @@ export const cart = () => {
                 setTimeout(() => {
                     thanksModal.classList.remove("thanks--active");
                     document.body.classList.remove("lock-sidebar");
-                }, 1500);
+                }, 60000);
 
                 localStorage.setItem("cart", JSON.stringify(cartArray));
                 countQuantityOfProducts();
@@ -540,7 +540,7 @@ export const cart = () => {
                     setTimeout(() => {
                         thanksModal.classList.remove("thanks--active");
                         document.body.classList.remove("lock-sidebar");
-                    }, 1500);
+                    }, 60000);
 
                     countQuantityOfProducts();
                     showCorrectCard();
@@ -625,7 +625,7 @@ export const cart = () => {
                     setTimeout(() => {
                         thanksModal.classList.remove("thanks--active");
                         document.body.classList.remove("lock-sidebar");
-                    }, 1500);
+                    }, 60000);
 
                     countQuantityOfProducts();
                     countTotalPrice();
@@ -708,7 +708,7 @@ export const cart = () => {
                 }
             }
 
-            if (e.target && e.target.classList.contains("wrapper")) {
+            if ((e.target && e.target.classList.contains("wrapper")) || (e.target && e.target.hasAttribute("data-close-modal"))) {
                 thanksModal.classList.remove("thanks--active");
                 document.body.classList.remove("lock-sidebar");
             }

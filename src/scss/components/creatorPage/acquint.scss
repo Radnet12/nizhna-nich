@@ -59,5 +59,29 @@
                 margin-bottom: 30px;
             }
         }
+
+        ul {
+            margin-bottom: 30px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 12px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 10px;
+                border-radius: 50%;
+                width: 4px;
+                height: 4px;
+                background-color: var(--clr-main);
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
     }
 }

@@ -1,4 +1,11 @@
 .product {
+    .swiper-pagination {
+        display: none;
+
+        @media (max-width: 1200px) {
+            display: block;
+        }
+    }
     &__wrapper {
         display: flex;
 
@@ -163,8 +170,111 @@
         max-width: 550px;
         line-height: 130%;
 
+        p {
+            &:not(:last-child) {
+                margin-bottom: 15px;
+
+                @media (max-width: 992px) {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+
         @media (max-width: 1200px) {
             max-width: 100%;
+        }
+    }
+
+    &__tabs {
+        margin-top: 35px;
+        margin-bottom: 25px;
+        max-width: 550px;
+
+        @media (max-width: 1200px) {
+            max-width: 100%;
+        }
+    }
+
+    &__tab {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        &-head {
+            @include adaptiv-value("font-size", 20, 16, 1);
+
+            position: relative;
+            border-bottom: 1px solid var(--clr-border);
+            padding: 0 37px 15px 15px;
+            font-family: "PlayfairDisplay", "PTSerif", sans-serif;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                position: absolute;
+                right: 15px;
+                top: 6px;
+                width: 14px;
+                height: 14px;
+                background-image: url("../img/ui/slider-arrow.svg");
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                transform: rotate(-90deg);
+                transition: transform 0.3s;
+            }
+
+            &--active {
+                &::before {
+                    transform: rotate(90deg);
+                    transition: transform $ms;
+                }
+            }
+        }
+
+        &-body {
+            overflow: hidden;
+            padding-right: 15px;
+            padding-left: 15px;
+            max-height: 0;
+            font-size: 16px;
+            line-height: 150%;
+            transition: max-height $ms, padding $ms;
+
+            p {
+                line-height: 130%;
+
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            &-title {
+                margin-bottom: 8px;
+            }
+
+            ul {
+                margin-bottom: 8px;
+                li {
+                    position: relative;
+                    padding-left: 10px;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 12px;
+                        border-radius: 50%;
+                        width: 4px;
+                        height: 4px;
+                        background-color: var(--clr-main);
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
         }
     }
 
@@ -264,6 +374,31 @@
 
         margin-bottom: 25px;
         font-family: "PlayfairDisplay", "PTSerif", sans-serif;
+    }
+
+    &__sizes {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 50%;
+            height: 1px;
+            background-color: var(--clr-main);
+            transition: width $ms;
+        }
+
+        @media (hover) {
+            &:hover,
+            &:focus {
+                &::before {
+                    width: 100%;
+                    transition: width $ms;
+                }
+            }
+        }
     }
 
     &__size {
@@ -403,6 +538,7 @@
     }
 
     &__color-preview {
+        border-radius: 50%;
         width: 50px;
         height: 50px;
     }

@@ -33,28 +33,47 @@
                 background-color: var(--clr-light);
             }
         }
+
+        .header__language {
+            color: var(--clr-light);
+
+            &-top {
+                svg {
+                    fill: var(--clr-light);
+                }
+            }
+        }
     }
 
     &__wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media (max-width: 1200px) {
+            justify-content: initial;
+        }
     }
 
     &__logo {
         width: 100%;
-        max-width: 97px;
-        max-height: 65px;
+        max-width: 121px;
+        max-height: 70px;
 
         img {
             width: 100%;
             height: auto;
             object-fit: cover;
         }
+
+        @media (max-width: 1200px) {
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 
     &__nav {
-        @media (max-width: 1150px) {
+        @media (max-width: 1200px) {
             position: fixed;
             left: -100%;
             top: 0;
@@ -87,6 +106,11 @@
                     transition: transform $ms * 2 $ms * 3, opacity $ms * 2 $ms * 3;
                     transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), ease-in-out;
                 }
+
+                .header__contact-lang::before {
+                    opacity: 1;
+                    transition: opacity $ms * 2 $ms * 3;
+                }
             }
         }
     }
@@ -95,7 +119,7 @@
         display: flex;
         align-items: center;
 
-        @media (max-width: 1150px) {
+        @media (max-width: 1200px) {
             display: block;
             overflow: auto;
             padding: 50px 15px;
@@ -106,9 +130,13 @@
     &__nav-item {
         &:not(:last-child) {
             margin-right: 30px;
+
+            @media (max-width: 1400px) {
+                margin-right: 22px;
+            }
         }
 
-        @media (max-width: 1150px) {
+        @media (max-width: 1200px) {
             overflow: hidden;
 
             &:not(:last-child) {
@@ -123,7 +151,7 @@
         padding-top: 29px;
         padding-bottom: 29px;
 
-        @media (min-width: 1151px) {
+        @media (min-width: 1201px) {
             &::after {
                 content: "";
                 position: absolute;
@@ -143,9 +171,15 @@
                     transition: width $ms;
                 }
             }
+
+            &--active {
+                &::after {
+                    width: 100%;
+                }
+            }
         }
 
-        @media (max-width: 1150px) {
+        @media (max-width: 1200px) {
             @include adaptiv-value("font-size", 40, 18, 1);
 
             display: inline-block;
@@ -163,7 +197,7 @@
     &__contact {
         display: none;
 
-        @media (max-width: 1150px) {
+        @media (max-width: 1200px) {
             display: block;
             overflow: hidden;
             color: var(--clr-light);
@@ -185,6 +219,38 @@
         transform: translateY(100%);
         transition: opacity $ms * 2, transform $ms * 2;
         transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    &__contact-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__contact-lang {
+        opacity: 0.55;
+
+        &--active {
+            opacity: 1;
+        }
+
+        &:not(:last-child) {
+            position: relative;
+            margin-right: 14px;
+            padding-right: 14px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                right: -1px;
+                top: 50%;
+                width: 1px;
+                height: 100%;
+                background-color: var(--clr-light);
+                opacity: 0;
+                transform: translateY(-50%);
+            }
+        }
     }
 
     &__cart {
@@ -209,10 +275,87 @@
         background-color: var(--clr-main);
     }
 
+    &__language {
+        position: relative;
+        border-right: 1px solid var(--clr-border);
+        border-left: 1px solid var(--clr-border);
+        padding: 8px 30px;
+        font-size: 18px;
+        cursor: pointer;
+
+        &-top {
+            display: flex;
+            align-items: center;
+
+            svg {
+                margin-left: 7px;
+                width: 8px;
+                height: 4px;
+                fill: none;
+                stroke: var(--clr-main);
+                transform: rotate(180deg);
+                transition: transform $ms;
+            }
+        }
+
+        &-dropdown {
+            position: absolute;
+            left: -1px;
+            right: -1px;
+            top: 100%;
+            border-right: 1px solid var(--clr-border);
+            border-left: 1px solid var(--clr-border);
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity $ms, visibility $ms;
+
+            &-item {
+                a {
+                    display: block;
+                    padding: 3px 5px;
+                }
+
+                span {
+                    display: inline-block;
+                    transform: translateX(-7px);
+                }
+            }
+        }
+
+        &:hover,
+        &:focus {
+            .header__language-dropdown {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity $ms, visibility $ms;
+            }
+
+            .header__language-top {
+                svg {
+                    transform: rotate(0);
+                    transition: transform $ms;
+                }
+            }
+        }
+
+        @media (max-width: 1400px) {
+            padding: 8px 20px;
+        }
+
+        @media (max-width: 1200px) {
+            margin-right: 20px;
+        }
+
+        @media (max-width: 576px) {
+            display: none;
+        }
+    }
+
     &__burger {
         display: none;
 
-        @media (max-width: 1150px) {
+        @media (max-width: 1200px) {
             position: relative;
             z-index: 15;
             display: block;

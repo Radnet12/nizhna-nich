@@ -1,0 +1,16 @@
+{
+    "prices": [
+        {
+            "sizesPrices": ["1489", "1859", "1949", "2289"],
+            "withStretch": "200",
+            "additionalPair": "370",
+            "combination": "200"
+        },
+        {
+            "sizesPrices": ["1759", "2279", "2389", "2839"],
+            "withStretch": "200",
+            "additionalPair": "430",
+            "combination": "200"
+        }
+    ]
+}

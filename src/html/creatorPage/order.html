@@ -46,17 +46,21 @@
                     <div class="checkout__title">
                         * Оберіть тип тканини:
                     </div>
-                    <div class="order__form-item-wrap">
+                    <div class="order__form-item-wrap" data-type>
                         <label class="checkout__radio">
-                            <input type="radio" name="Тип тканини" value="Сатин" data-validate-field="type">
+                            <input type="radio" name="Тип тканини" data-type-index="1" value="Сатин" data-validate-field="type">
                             <span>Сатин</span>
                         </label>
                         <label class="checkout__radio">
-                            <input type="radio" name="Тип тканини" value="Страйп сатин" data-validate-field="type">
+                            <input type="radio" name="Тип тканини" data-type-index="1" value="Страйп сатин" data-validate-field="type">
                             <span>Страйп сатин</span>
                         </label>
                         <label class="checkout__radio">
-                            <input type="radio" name="Тип тканини" value="Поплін" data-validate-field="type">
+                            <input type="radio" name="Тип тканини" data-type-index="1" value="Страйп сатин + Сатин" data-validate-field="type">
+                            <span>Страйп сатин + Сатин</span>
+                        </label>
+                        <label class="checkout__radio">
+                            <input type="radio" name="Тип тканини" data-type-index="0" value="Поплін" data-validate-field="type">
                             <span>Поплін</span>
                         </label>
                     </div>
@@ -67,23 +71,24 @@
                     </div>
                     <div class="order__form-item-wrap" data-size-btn>
                         <label class="checkout__radio">
-                            <input type="radio" name="Розмір комплекту" value="1,5" data-validate-field="size">
+                            <input type="radio" name="Розмір комплекту" data-price value="1,5" data-validate-field="size">
                             <span>1,5</span>
                         </label>
                         <label class="checkout__radio">
-                            <input type="radio" name="Розмір комплекту" value="Двоспальний" data-validate-field="size">
+                            <input type="radio" name="Розмір комплекту" data-price value="Двоспальний" data-validate-field="size">
                             <span>Двоспальний</span>
                         </label>
                         <label class="checkout__radio">
-                            <input type="radio" name="Розмір комплекту" value="Євро" data-validate-field="size">
+                            <input type="radio" name="Розмір комплекту" data-price value="Євро" data-validate-field="size">
                             <span>Євро</span>
                         </label>
                         <label class="checkout__radio">
-                            <input type="radio" name="Розмір комплекту" value="Сімейний" data-validate-field="size">
+                            <input type="radio" name="Розмір комплекту" data-price value="Сімейний" data-validate-field="size">
                             <span>Сімейний</span>
                         </label>
                         <label class="checkout__radio">
-                            <input type="radio" name="Розмір комплекту" value="Нестандартний" data-size-custom data-validate-field="size">
+                            <input type="radio" name="Розмір комплекту" data-price="custom" value="Нестандартний" data-size-custom
+                                data-validate-field="size">
                             <span>Нестандартний</span>
                         </label>
                     </div>
@@ -93,57 +98,72 @@
                 <div class="checkout__title">
                     Вкажіть номер кольору та розмір за списком:
                 </div>
-                <div class="order__form-bottom-row">
-                    <div class="order__form-bottom-item">
-                        <div class="order__form-bottom-title">
-                            * Простирадло
-                        </div>
-                        <div class="order__form-bottom-wrap">
-                            <div class="order__form-bottom-input">
-                                <input type="text" placeholder="Введіть №" name="Простирадло (номер)"
-                                    data-validate-field="oneOne" class="checkout__input">
+                <div class="order__form-bottom-column">
+                    <div class="order__form-bottom-inner">
+                        <div class="order__form-bottom-item">
+                            <div class="order__form-bottom-title">
+                                * Простирадло
                             </div>
-                            <div class="order__form-bottom-input" data-size-input>
-                                <input type="text" placeholder="Введіть розмір" name="Простирадло (розмір)"
-                                    data-validate-field="oneTwo" class="checkout__input">
+                            <div class="order__form-bottom-wrap">
+                                <div class="order__form-bottom-input">
+                                    <input type="text" placeholder="Введіть №" name="Простирадло (номер)"
+                                        data-validate-field="oneOne" data-input-sheet class="checkout__input">
+                                </div>
+                                <div class="order__form-bottom-input" data-size-input>
+                                    <input type="text" placeholder="Введіть розмір" name="Простирадло (розмір)"
+                                        data-validate-field="oneTwo" class="checkout__input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order__form-bottom-item">
+                            <div class="order__form-bottom-title">
+                                * Підковдра
+                            </div>
+                            <div class="order__form-bottom-wrap">
+                                <div class="order__form-bottom-input">
+                                    <input type="text" placeholder="Введіть №" data-input-blanket name="Підковдра (номер)"
+                                        data-validate-field="twoOne" class="checkout__input">
+                                </div>
+                                <div class="order__form-bottom-input" data-size-input>
+                                    <input type="text" placeholder="Введіть розмір" name="Підковдра (розмір)"
+                                        data-validate-field="twoTwo" class="checkout__input">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="order__form-bottom-item">
-                        <div class="order__form-bottom-title">
-                            * Підковдра
-                        </div>
-                        <div class="order__form-bottom-wrap">
-                            <div class="order__form-bottom-input">
-                                <input type="text" placeholder="Введіть №" name="Підковдра (номер)"
-                                    data-validate-field="twoOne" class="checkout__input">
+                    <div class="order__form-bottom-inner">
+                        <div class="order__form-bottom-item">
+                            <div class="order__form-bottom-title">
+                                * Наволочки
                             </div>
-                            <div class="order__form-bottom-input" data-size-input>
-                                <input type="text" placeholder="Введіть розмір" name="Підковдра (розмір)"
-                                    data-validate-field="twoTwo" class="checkout__input">
+                            <div class="order__form-bottom-wrap">
+                                <div class="order__form-bottom-input">
+                                    <input type="text" placeholder="Введіть №" data-input-pillowcase name="Наволочки (номер)"
+                                        data-validate-field="fourthOne" class="checkout__input">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="order__form-bottom-item">
-                        <div class="order__form-bottom-title">
-                            * Наволочки
-                        </div>
-                        <div class="order__form-item-wrap">
-                            <label class="checkout__radio">
-                                <input type="radio" name="Розмір наволочки" value="50/70"
-                                    data-validate-field="threeOne">
-                                <span>50/70</span>
-                            </label>
-                            <label class="checkout__radio">
-                                <input type="radio" name="Розмір наволочки" value="60/70"
-                                    data-validate-field="threeOne">
-                                <span>60/70</span>
-                            </label>
-                            <label class="checkout__radio">
-                                <input type="radio" name="Розмір наволочки" value="70/70"
-                                    data-validate-field="threeOne">
-                                <span>70/70</span>
-                            </label>
+                        <div class="order__form-bottom-item">
+                            <div class="order__form-bottom-title">
+                                * Наволочки
+                            </div>
+                            <div class="order__form-item-wrap">
+                                <label class="checkout__radio">
+                                    <input type="radio" name="Розмір наволочки" value="50/70"
+                                        data-validate-field="threeOne">
+                                    <span>50/70</span>
+                                </label>
+                                <label class="checkout__radio">
+                                    <input type="radio" name="Розмір наволочки" value="60/70"
+                                        data-validate-field="threeOne">
+                                    <span>60/70</span>
+                                </label>
+                                <label class="checkout__radio">
+                                    <input type="radio" name="Розмір наволочки" value="70/70"
+                                        data-validate-field="threeOne">
+                                    <span>70/70</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -155,7 +175,7 @@
                         <div class="order__form-bottom-wrap">
                             <div class="order__form-bottom-input">
                                 <input type="text" placeholder="Введіть №"
-                                    name="Додаткова пара наволочок/акцентні наволочки (номер)" class="checkout__input">
+                                    name="Додаткова пара наволочок/акцентні наволочки (номер)" data-additional class="checkout__input">
                             </div>
                             <div class="order__form-bottom-input" data-size-input>
                                 <input type="text" placeholder="Введіть розмір"
@@ -167,14 +187,17 @@
                         <div class="order__form-bottom-title">
                             Простирадло на гумці (резинці)
                         </div>
-                        <div class="order__form-bottom-wrap">
-                            <div class="order__form-bottom-input">
-                                <input type="text" placeholder="Введіть розмір" name="Простирадло на гумці"
-                                    class="checkout__input">
-                            </div>
+                        <div class="order__form-bottom-wrap" data-stretch>
+                            <label class="checkout__radio">
+                                <input type="checkbox" name="Простирадло на гумці (резинці)" value="Так">
+                                <span>Додати</span>
+                            </label>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="order__price">
+                Ціна: <span>-</span> грн
             </div>
             <button class="btn-primary" type="submit">
                 Надіслати

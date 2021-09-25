@@ -112,4 +112,13 @@
             transform: rotate(-90deg);
         }
     }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+
+        @media (max-width: 1200px) {
+            display: flex;
+        }
+    }
 }
