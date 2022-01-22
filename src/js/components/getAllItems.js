@@ -84,7 +84,7 @@ export const getAllItems = () => {
                                             </div>
                                         </div>
                                         <button class="card-item__btn btn-primary">
-                                            Переглянути товар
+                                            Посмотреть товар
                                         </button>
                                     </div>
                                 </a>

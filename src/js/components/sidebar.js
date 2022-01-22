@@ -25,8 +25,10 @@ export const sidebar = () => {
         if (activeSidebar) {
             const body = activeSidebar.querySelector(".category__sidebar-body");
 
-            body.style.maxHeight = body.scrollHeight + "px";
-            body.style.marginTop = "15px";
+            if (body) {
+                body.style.maxHeight = body.scrollHeight + "px";
+                body.style.marginTop = "15px";
+            }
         }
 
         const mediaQuery = window.matchMedia('(max-width: 1150px)');

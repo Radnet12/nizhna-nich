@@ -208,21 +208,21 @@ export const cart = () => {
                                                 </div>
                                                 <div class="card-cart__calc">
                                                     <button class="card-cart__calc-btn"
-                                                        aria-label="Зменшити кількість товару на одну единицю" data-control="minus">
+                                                        aria-label="Уменьшить количество товара на одну единицу" data-control="minus">
                                                         -
                                                     </button>
                                                     <input class="card-cart__calc-input" type="text" value="${quantity}"
                                                         aria-label="Поле для запису кількості товару" data-input>
                                                     <button class="card-cart__calc-btn"
-                                                        aria-label="Збільшити кількість товару на одну единицю" data-control="plus">
+                                                        aria-label="Увеличить количество товара на одну единицу" data-control="plus">
                                                         +
                                                     </button>
                                                 </div>
-                                                <button class="card-cart__close" data-remove aria-label="Видалити товар з корзини"></button>
+                                                <button class="card-cart__close" data-remove aria-label="Удалить товар из корзины"></button>
                                             </div>
                                         </article>
                                     </li>
-                                `
+                                `;
                         } else if (type === "adds") {
                             return `
                                 <li class="cart__item" data-id="${id}">
@@ -246,21 +246,21 @@ export const cart = () => {
                                             </div>
                                             <div class="card-cart__calc">
                                                 <button class="card-cart__calc-btn"
-                                                    aria-label="Зменшити кількість товару на одну единицю" data-control="minus">
+                                                    aria-label="Уменьшить количество товара на одну единицу" data-control="minus">
                                                     -
                                                 </button>
                                                 <input class="card-cart__calc-input" type="text" value="${quantity}"
                                                     aria-label="Поле для запису кількості товару" data-input>
                                                 <button class="card-cart__calc-btn"
-                                                    aria-label="Збільшити кількість товару на одну единицю" data-control="plus">
+                                                    aria-label="Увеличить количество товара на одну единицу" data-control="plus">
                                                     +
                                                 </button>
                                             </div>
-                                            <button class="card-cart__close" data-remove aria-label="Видалити товар з корзини"></button>
+                                            <button class="card-cart__close" data-remove aria-label="Удалить товар из корзины"></button>
                                         </div>
                                     </article>
                                 </li>
-                            `
+                            `;
                         } else if (type === "extra") {
                             locateExtraInTheCorrectPlace(id, title, price, additionalText, forWhatProduct);
                         }
@@ -268,17 +268,20 @@ export const cart = () => {
                     initializeInput();
                 } else {
                     placeForPrice.style.display = "none";
-                    placeOfItems.insertAdjacentHTML("beforeend", `
+                    placeOfItems.insertAdjacentHTML(
+                        "beforeend",
+                        `
                         <li class="cart__empty">
-                            <h2 class="section__title">Ваша корзина порожня</h2>
+                            <h2 class="section__title">Ваша корзина пустая</h2>
                             <div class="cart__empty-subtitle">
-                                Ви маєте можливість повернутися за покупками
+                                Вы можете вернуться за покупками
                             </div>
-                            <a href="catalog" class="btn-primary">
-                                Повернутися за покупками
+                            <a href="./catalog" class="btn-primary">
+                                Вернуться за покупками
                             </a>
                         </li>
-                    `);
+                    `
+                    );
                 }
             }
 
@@ -320,19 +323,19 @@ export const cart = () => {
                                         </div>
                                         <div class="cart-checkout__calc">
                                             <button class="cart-checkout__calc-btn"
-                                                aria-label="Зменшити кількість товару на одну єдиницю" data-control="minus">
+                                                aria-label="Уменьшить количество товара на одну единицу" data-control="minus">
                                                 -
                                             </button>
                                             <input type="text" class="cart-checkout__calc-input" value="${quantity}" data-input>
                                             <button class="cart-checkout__calc-btn"
-                                                aria-labe="Збільшити кількість товару на одну єдиницю" data-control="plus">
+                                                aria-labe="Увеличить количество товара на одну единицу" data-control="plus">
                                                 +
                                             </button>
                                         </div>
                                     </div>
-                                    <button class="cart-checkout__close" data-remove aria-label="Видалити товар з корзини"></button>
+                                    <button class="cart-checkout__close" data-remove aria-label="Удалить товар из корзины"></button>
                                 </li>
-                            `
+                            `;
                         } else if (type === "adds") {
                             return `
                                 <li class="cart-checkout__item" data-id="${id}">
@@ -351,19 +354,19 @@ export const cart = () => {
                                         </div>
                                         <div class="cart-checkout__calc">
                                             <button class="cart-checkout__calc-btn"
-                                                aria-label="Зменшити кількість товару на одну єдиницю" data-control="minus">
+                                                aria-label="Уменьшить количество товара на одну единицу" data-control="minus">
                                                 -
                                             </button>
                                             <input type="text" class="cart-checkout__calc-input" value="${quantity}" data-input>
                                             <button class="cart-checkout__calc-btn"
-                                                aria-labe="Збільшити кількість товару на одну єдиницю" data-control="plus">
+                                                aria-labe="Увеличить количество товара на одну единицу" data-control="plus">
                                                 +
                                             </button>
                                         </div>
                                     </div>
-                                    <button class="cart-checkout__close" data-remove aria-label="Видалити товар з корзини"></button>
+                                    <button class="cart-checkout__close" data-remove aria-label="Удалить товар из корзины"></button>
                                 </li>
-                            `
+                            `;
                         } else if (type === "extra") {
                             locateExtraInTheCorrectPlace(id, title, price, additionalText, forWhatProduct);
                         }
@@ -371,7 +374,7 @@ export const cart = () => {
                     initializeInput();
                     intializePromocode();
                 } else {
-                    window.location.href = '/catalog';
+                    window.location.href = './catalog';
                 }
             };
         };
@@ -495,7 +498,7 @@ export const cart = () => {
                             cardInfo = {
                                 id: item.getAttribute("data-id"),
                                 img: parent.querySelector(".info-product__addition-image img").src,
-                                title: "Акцента пара наволочок",
+                                title: "Акцента пара наволочек",
                                 href: window.location.href,
                                 price: parent.querySelector(".info-product__addition-info--price span").textContent,
                                 color: parent.querySelector(".info-product__addition-name").textContent,
@@ -506,7 +509,7 @@ export const cart = () => {
                             cardInfo = {
                                 id: item.getAttribute("data-id"),
                                 img: parent.querySelector(".cart__additions-image img").src,
-                                title: "Акцента пара наволочок",
+                                title: "Акцента пара наволочек",
                                 href: window.location.href,
                                 price: parent.querySelector(".cart__additions-price span").textContent,
                                 color: parent.querySelector(".cart__additions-name").textContent,
@@ -669,19 +672,22 @@ export const cart = () => {
                     if (parent.lastElementChild.classList.contains("checkout__delivery")) {
                         parent.lastElementChild.remove();
                     }
-                    parent.insertAdjacentHTML("beforeend", `
+                    parent.insertAdjacentHTML(
+                        "beforeend",
+                        `
                         <div class="checkout__delivery">
                             <div class="checkout__inputs-row">
                                 <div class="checkout__input-wrapper">
-                                    <input placeholder="Оберіть місто" name="Місто" class="checkout__input checkout__input--city" data-validate-field="city">
+                                    <input placeholder="Выберите город" name="Місто" class="checkout__input checkout__input--city" data-validate-field="city">
                                     <ul class="checkout__result-list"></ul>
                                 </div>
                                 <div class="checkout__input-wrapper">
-                                    <input placeholder="Напишіть відділення" name="Номер пошти" class="checkout__input" data-validate-field="city">
+                                    <input placeholder="Напишите отделение" name="Номер пошти" class="checkout__input" data-validate-field="city">
                                 </div>
                             </div>
                         </div>
-                `);
+                `
+                    );
                 } else if (+deliveryType === 2) {
                     if (parent.lastElementChild.classList.contains("checkout__delivery")) {
                         parent.lastElementChild.remove();
@@ -690,16 +696,16 @@ export const cart = () => {
                         <div class="checkout__delivery">
                             <div class="checkout__inputs-row">
                                 <div class="checkout__input-wrapper">
-                                    <input placeholder="Оберіть місто" name="Місто" class="checkout__input checkout__input--city" data-validate-field="city">
+                                    <input placeholder="Выберите город" name="Місто" class="checkout__input checkout__input--city" data-validate-field="city">
                                     <ul class="checkout__result-list"></ul>
                                 </div>
                                 <div class="checkout__input-wrapper">
-                                    <input placeholder="Напишіть відділення" name="Номер пошти" class="checkout__input" data-validate-field="city">
+                                    <input placeholder="Напишите отделение" name="Номер пошти" class="checkout__input" data-validate-field="city">
                                 </div>
                             </div>
                             <div class="checkout__inputs-row">
                                 <div class="checkout__input-wrapper">
-                                    <input name="Адреса" placeholder="Вкажіть адресу" class="checkout__input"
+                                    <input name="Адреса" placeholder="Укажите адрес" class="checkout__input"
                                         data-validate-field="adress">
                                 </div>
                             </div>

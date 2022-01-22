@@ -90,7 +90,7 @@ export const validateForms = (inputSelector) => {
             },
             function () {
                 thanksModal.querySelector("p").textContent =
-                    "Щось пішло не так. Спробуйте ще раз!";
+                    "Что-то пошло не так. Попробуйте еще раз!";
                 thanksModal.classList.add("thanks--active");
                 document.body.classList.add("lock-sidebar");
 
@@ -101,7 +101,7 @@ export const validateForms = (inputSelector) => {
             },
             function () {
                 thanksModal.querySelector("p").textContent =
-                    "Йде обробка. Зачекайте, будь ласка!";
+                    "Идет обработка. Подождите, пожалуйста!";
                 thanksModal.classList.add("thanks--active");
                 document.body.classList.add("lock-sidebar");
 
@@ -118,26 +118,26 @@ export const validateForms = (inputSelector) => {
             new window.JustValidate(selector, {
                 rules: rules,
                 messages: {
-                    name: "Будь ласка, введіть ім'я",
-                    phone: "Будь ласка, введіть номер телефону",
+                    name: "Пожалуйста, введите имя",
+                    phone: "Пожалуйста, введите номер телефона",
                     email: {
-                        required: "Будь ласка, введіть пошту",
-                        email: "Будь ласка, введіть пошту корректно",
+                        required: "Пожалуйста, введите почту",
+                        email: "Пожалуйста, введите почту корректно",
                     },
-                    checkbox: "Поле є обов'язковим",
-                    surname: "Будь ласка, введіть прізвище",
-                    delivery: "Будь ласка, оберіть спосіб доставки",
-                    payment: "Будь ласка, оберіть спосіб оплати",
-                    district: "Будь ласка, введіть область",
-                    city: "Будь ласка, введіть місто",
-                    adress: "Будь ласка, введіть адресу",
-                    mailpost: "Будь ласка, введіть номер пошти",
-                    type: "Будь ласка, оберіть тип тканини",
-                    size: "Будь ласка, оберіть розмір",
-                    oneOne: "Введіть №",
-                    twoOne: "Введіть №",
-                    threeOne: "Оберіть розмір",
-                    fourthOne: "Введіть №",
+                    checkbox: "Поле является обязательным",
+                    surname: "Пожалуйста, введите фамилию",
+                    delivery: "Пожалуйста, выберите способ доставки",
+                    payment: "Пожалуйста, выберите способ оплаты",
+                    district: "Пожалуйста, введите область",
+                    city: "Пожалуйста, введите город",
+                    adress: "Пожалуйста, введите адрес",
+                    mailpost: "Пожалуйста, введите номер почты",
+                    type: "Пожалуйста, выберите тип ткани",
+                    size: "Пожалуйста, выберите размер",
+                    oneOne: "Введите №",
+                    twoOne: "Введите №",
+                    threeOne: "Выберите размер",
+                    fourthOne: "Введите №",
                 },
                 submitHandler: function (form) {
                     let formData = new FormData(form);
@@ -209,7 +209,7 @@ export const validateForms = (inputSelector) => {
                                                             thanksModal.querySelector(
                                                                 "p"
                                                             ).textContent =
-                                                                "Щось пішло не так. Спробуйте ще раз!";
+                                                                "Что-то пошло не так. Попробуйте еще раз!";
                                                             thanksModal.classList.add(
                                                                 "thanks--active"
                                                             );
@@ -241,7 +241,7 @@ export const validateForms = (inputSelector) => {
                                                 thanksModal.querySelector(
                                                     "p"
                                                 ).textContent =
-                                                    "Щось пішло не так. Спробуйте ще раз!";
+                                                    "Что-то пошло не так. Попробуйте еще раз!";
                                                 thanksModal.classList.add(
                                                     "thanks--active"
                                                 );
@@ -279,10 +279,10 @@ export const validateForms = (inputSelector) => {
 
                                 if (selector === ".footer__mail-form") {
                                     thanksModal.querySelector("p").textContent =
-                                        "Дякуємо за підписку на новини!";
+                                        "Спасибо за подписку на новости!";
                                 } else if (selector === ".order__form") {
                                     thanksModal.querySelector("p").textContent =
-                                        "Дякуємо за замовлення у нашому магазині!";
+                                        "Спасибо за заказ в нашем магазине!";
                                 }
 
                                 thanksModal.classList.add("thanks--active");
@@ -298,7 +298,7 @@ export const validateForms = (inputSelector) => {
                                 }, 2500);
                             } else {
                                 thanksModal.querySelector("p").textContent =
-                                    "Щось пішло не так. Спробуйте ще раз!";
+                                    "Что-то пошло не так. Попробуйте еще раз!";
                                 thanksModal.classList.add("thanks--active");
                                 document.body.classList.add("lock-sidebar");
 
